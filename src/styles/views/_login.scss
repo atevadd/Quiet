@@ -1,0 +1,49 @@
+.login {
+  width: 100%;
+  min-height: 100vh;
+  // border: 8px solid white;
+  @include grid-center;
+
+  &__form {
+    position: relative;
+
+    @include mobile {
+      width: 90%;
+    }
+    @include tablet {
+      width: 85%;
+    }
+    @include laptop {
+      width: 40%;
+    }
+    @include desktop {
+      width: 35%;
+    }
+
+    h1 {
+      text-align: center;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 2rem;
+      }
+    }
+    p {
+      font-size: 1rem;
+      font-family: $mont;
+      text-align: center;
+      margin-block: 0 20px;
+      color: $text-color-grey-100;
+    }
+
+    form {
+      display: block;
+      position: relative;
+      outline: 1px solid #fff;
+      border-radius: 10px;
+      width: 100%;
+      padding: 15px 20px;
+    }
+  }
+}
