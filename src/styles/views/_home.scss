@@ -20,15 +20,16 @@ main {
     animation: slideup 0.45s cubic-bezier(0.07, 0.01, 0.6, 1.57) forwards;
 
     @include mobile {
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
     @include tablet {
-      font-size: 1.9rem;
+      font-size: 3.6rem;
     }
     @include laptop {
-      font-size: 3rem;
+      font-size: 5rem;
     }
     @include desktop {
+      width: 60%;
       font-size: 5rem;
     }
   }
@@ -36,10 +37,24 @@ main {
     font-size: 1.1rem;
     font-family: $mont;
     font-weight: 500;
-    width: 70%;
+
     text-align: center;
     opacity: 0;
     animation: slideup 0.45s cubic-bezier(0.07, 0.01, 0.6, 1.57) 0.45s forwards;
+
+    @include mobile {
+      width: 90%;
+      font-size: 0.8rem;
+    }
+    @include tablet {
+      font-size: 0.9rem;
+    }
+    @include laptop {
+      width: 60%;
+    }
+    @include desktop {
+      width: 40%;
+    }
   }
   .cta {
     width: 50%;
@@ -51,12 +66,21 @@ main {
     opacity: 0;
     animation: slideup 0.45s cubic-bezier(0.07, 0.01, 0.6, 1.57) 0.9s forwards;
 
+    @include mobile {
+      flex-direction: column;
+      width: 80%;
+    }
+    @include tablet {
+      width: 70%;
+    }
+
     &__link {
       padding: 15px 50px;
       // outline: 1px solid;
       border-radius: 5px;
       color: $text-color-white;
       text-decoration: none;
+      text-align: center;
 
       &.primary {
         background-color: $brand-color-2;

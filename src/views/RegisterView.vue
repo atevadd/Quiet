@@ -2,18 +2,13 @@
   <main class="login">
     <div class="login__form">
       <h1 class="heading"><router-link to="/">Quiet</router-link></h1>
-      <p class="sub-heading">Welcome back, login to continue</p>
+      <p class="sub-heading">Create an account to get started</p>
       <form>
-        <AppInput type="email" label="Email" id="email" required />
-        <p class="login__forgot">
-          <router-link to="/">Forgot password?</router-link>
-        </p>
+        <AppInput type="text" label="Username" id="user-name" required />
+        <AppInput type="email" label="Email" id="user-name" required />
         <AppInput type="password" label="Password" id="password" required />
-        <AppButton id="login__cta" type="submit">Login</AppButton>
+        <AppButton id="login__cta" type="submit">Get started</AppButton>
       </form>
-      <p class="login__signup">
-        New to Quiet? <router-link to="/">Get started</router-link>
-      </p>
     </div>
   </main>
 </template>
