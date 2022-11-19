@@ -1,13 +1,13 @@
 <template>
-  <main class="login">
-    <div class="login__form">
+  <main class="register">
+    <div class="register__form">
       <h1 class="heading"><router-link to="/">Quiet</router-link></h1>
       <p class="sub-heading">Create an account to get started</p>
       <form>
         <AppInput type="text" label="Username" id="user-name" required />
         <AppInput type="email" label="Email" id="user-name" required />
         <AppInput type="password" label="Password" id="password" required />
-        <AppButton id="login__cta" type="submit">Get started</AppButton>
+        <AppButton id="register__cta" type="submit">Get started</AppButton>
       </form>
     </div>
   </main>
@@ -19,5 +19,5 @@ import AppInput from "../components/AppInput.vue";
 </script>
 
 <style lang="scss" scoped>
-@import "@/styles/views/_login.scss";
+@import "@/styles/views/_register.scss";
 </style>
