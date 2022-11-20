@@ -27,7 +27,7 @@
     }
     &:focus + label {
       top: 20%;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       left: 5px;
       color: $text-color-grey-200;
     }
@@ -35,7 +35,7 @@
       // transition: 0.3s ease;
       top: 20%;
       left: 5px;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: $text-color-grey-200;
     }
   }
