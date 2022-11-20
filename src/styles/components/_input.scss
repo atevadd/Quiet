@@ -29,14 +29,14 @@
       top: 20%;
       font-size: 0.8rem;
       left: 5px;
-      // background-color: $brand-color-2;
+      color: $text-color-grey-200;
     }
     &:valid + label {
       // transition: 0.3s ease;
       top: 20%;
       left: 5px;
       font-size: 0.8rem;
-      // background-color: $brand-color-2;
+      color: $text-color-grey-200;
     }
   }
   &__label {

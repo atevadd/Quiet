@@ -81,4 +81,16 @@
       font-weight: 600;
     }
   }
+  &__alt-text {
+    text-align: center;
+    margin-block: 15px;
+    font-family: $mont;
+    color: $text-color-grey-100;
+    font-size: 0.85rem;
+
+    a {
+      color: $secondary-color;
+      font-weight: 600;
+    }
+  }
 }

@@ -12,7 +12,8 @@
         <AppButton id="login__cta" type="submit">Login</AppButton>
       </form>
       <p class="login__signup">
-        New to Quiet? <router-link to="/">Get started</router-link>
+        New to Quiet?
+        <router-link :to="{ name: 'register' }">Get started</router-link>
       </p>
     </div>
   </main>
