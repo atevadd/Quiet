@@ -11,8 +11,10 @@
 
         <div class="link-container">
           <div class="link">
-            <p id="profile-link">https://gdpd.xyz/atevadd</p>
-            <i class="uil uil-copy-alt"></i>
+            <p id="profile-link" @click="copyToClipboard($event)">
+              https://gdpd.xyz/atevadd
+            </p>
+            <i class="uil uil-copy-alt" @click="copyToClipboard($event)"></i>
           </div>
           <div class="social-media">
             <a
@@ -58,6 +60,16 @@
 // Generate social media links
 const generateLink = (link) => {
   return encodeURI(link);
+};
+
+const copyToClipboard = (e) => {
+  const link = document.getElementById("profile-link");
+
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(link.textContent);
+  }
+
+  console.log("copied for clipboard");
 };
 </script>
 

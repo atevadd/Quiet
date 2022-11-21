@@ -24,7 +24,7 @@
       width: 90%;
     }
     @include tablet {
-      width: 70%;
+      width: 80%;
     }
     @include laptop {
       width: 50%;
@@ -44,7 +44,6 @@
       font-family: $mont;
       color: $text-color-grey-100;
       font-size: 0.85rem;
-      width: 80%;
 
       @include mobile {
         width: 100%;
@@ -52,6 +51,12 @@
       }
       @include tablet {
         width: 100%;
+      }
+      @include laptop {
+        width: 80%;
+      }
+      @include desktop {
+        width: 80%;
       }
     }
 
@@ -114,6 +119,7 @@
           &:hover {
             background-color: $secondary-color;
             color: $text-color-black;
+            outline: 2px solid $text-color-black;
           }
         }
       }
