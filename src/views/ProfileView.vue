@@ -12,7 +12,7 @@
         <div class="link-container">
           <div class="link">
             <p id="profile-link" @click="copyToClipboard($event)">
-              https://gdpd.xyz/atevadd
+              https://quiett.fun/atevadd
             </p>
             <i class="uil uil-copy-alt" @click="copyToClipboard($event)"></i>
           </div>
