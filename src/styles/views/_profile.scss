@@ -45,7 +45,14 @@
       color: $text-color-grey-100;
       font-size: 0.85rem;
       width: 80%;
-      // margin-bottom: 15px;
+
+      @include mobile {
+        width: 100%;
+        font-size: 0.75rem;
+      }
+      @include tablet {
+        width: 100%;
+      }
     }
 
     .link-container {
@@ -54,6 +61,10 @@
       margin-top: 20px;
       align-items: center;
       gap: 10px;
+
+      @include mobile {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
 
       .link {
         // outline: 1px solid red;
