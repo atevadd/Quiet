@@ -28,6 +28,14 @@ const router = createRouter({
         title: "Quiet | Get started with Quiet",
       },
     },
+    {
+      path: "/profile",
+      name: "profile",
+      component: () => import("../views/ProfileView.vue"),
+      meta: {
+        title: "Quiet | Dashboard",
+      },
+    },
   ],
 });
 
