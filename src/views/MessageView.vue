@@ -1,5 +1,5 @@
 <template>
-  <div class="message" v-if="false">
+  <div class="message" v-if="true">
     <header>
       <h1>Your messages</h1>
       <p>

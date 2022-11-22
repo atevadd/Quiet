@@ -1,7 +1,6 @@
 main {
   background-color: $brand-color;
   color: $text-color-white;
-  // outline: 1px solid $text-color-white;
   min-height: 80vh;
   height: 100%;
   display: flex;
@@ -13,7 +12,6 @@ main {
   h1 {
     text-align: center;
     color: $secondary-color;
-    // color: $brand-color-2;
     font-weight: 400;
     line-height: 1.2;
     opacity: 0;
@@ -93,10 +91,6 @@ main {
           box-shadow: 0 3px 13px rgba($color: #000000, $alpha: 0.2);
         }
       }
-      // &.secondary {
-      //   outline: 1px solid $secondary-color;
-      //   color: $text-color-white;
-      // }
       &.secondary {
         &:hover {
           outline: 1px solid $secondary-color;

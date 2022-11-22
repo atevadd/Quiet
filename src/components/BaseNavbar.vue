@@ -2,7 +2,11 @@
   <header
     class="container center"
     id="navbar"
-    v-if="route.name !== 'login' && route.name !== 'register'">
+    v-if="
+      route.name !== 'login' &&
+      route.name !== 'register' &&
+      route.name !== 'error'
+    ">
     <div class="logo">
       <router-link to="/">Quiet</router-link>
     </div>

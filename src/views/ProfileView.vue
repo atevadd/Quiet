@@ -49,7 +49,7 @@
       </div>
     </div>
     <p class="profile__messages">
-      <router-link to="/"
+      <router-link :to="{ name: 'message' }"
         >View messages <i class="uil uil-arrow-right"></i
       ></router-link>
     </p>

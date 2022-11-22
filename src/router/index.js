@@ -21,6 +21,14 @@ const router = createRouter({
       },
     },
     {
+      path: "/error",
+      name: "error",
+      component: () => import("../views/ErrorView.vue"),
+      meta: {
+        title: "Login to continue | Quiet",
+      },
+    },
+    {
       path: "/auth/get-started",
       name: "register",
       component: () => import("../views/RegisterView.vue"),
@@ -29,7 +37,7 @@ const router = createRouter({
       },
     },
     {
-      path: "/profile",
+      path: "/home",
       name: "profile",
       component: () => import("../views/ProfileView.vue"),
       meta: {
@@ -42,6 +50,14 @@ const router = createRouter({
       component: () => import("../views/MessageView.vue"),
       meta: {
         title: "Quiet | Messages",
+      },
+    },
+    {
+      path: "/:username",
+      name: "username",
+      component: () => import("../views/UsernameView.vue"),
+      meta: {
+        title: "Write a piece of your mind here without trace | Quiet",
       },
     },
   ],

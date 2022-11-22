@@ -1,0 +1,77 @@
+.error {
+  position: relative;
+  width: 90%;
+  margin-inline: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    line-height: 1.2;
+    // color: $text-color-white;
+    color: $secondary-color;
+    letter-spacing: 5px;
+    text-shadow: 0 15px 13px rgba($color: #000, $alpha: 0.2);
+    font-family: $mont;
+    margin-bottom: 10px;
+
+    @include mobile {
+      font-size: 3rem;
+    }
+    @include tablet {
+      font-size: 5rem;
+    }
+    @include laptop {
+      font-size: 10rem;
+    }
+    @include desktop {
+      font-size: 10rem;
+    }
+
+    // span {
+    //   color: $secondary-color;
+    // }
+  }
+  p {
+    color: $text-color-white;
+    text-align: center;
+    font-family: $mont;
+    font-weight: 600;
+
+    @include mobile {
+      width: 90%;
+      margin-inline: auto;
+      font-size: 0.75rem;
+    }
+    @include tablet {
+      width: 90%;
+      margin-inline: auto;
+    }
+    @include laptop {
+      width: 70%;
+      margin-inline: auto;
+    }
+    @include desktop {
+      width: 60%;
+      margin-inline: auto;
+    }
+  }
+
+  &__cta {
+    display: inline-block;
+    margin-block: 20px;
+    padding: 14px 50px;
+    background-color: $secondary-color;
+    color: $text-color-black;
+    border-radius: 10px;
+    transition: outline 0.15s ease;
+    font-family: $mont;
+    font-weight: 600;
+
+    &:hover {
+      outline: 2px solid $text-color-black;
+    }
+  }
+}
