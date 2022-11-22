@@ -11,6 +11,20 @@
   }
   h1 {
     color: $text-color-white;
+    text-align: center;
+
+    @include mobile {
+      font-size: 1.2rem;
+    }
+    @include tablet {
+      font-size: 1.5rem;
+    }
+    @include laptop {
+      font-size: 2rem;
+    }
+    @include desktop {
+      font-size: 2rem;
+    }
   }
 }
 

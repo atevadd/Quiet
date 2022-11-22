@@ -84,16 +84,23 @@ main {
       text-align: center;
 
       &.primary {
-        background-color: $brand-color-2;
-        // background-color: $secondary-color;
+        // background-color: $brand-color-2;
+        background-color: $secondary-color;
+        color: $text-color-black;
         transition: box-shadow 0.1s ease;
 
         &:hover {
           box-shadow: 0 3px 13px rgba($color: #000000, $alpha: 0.2);
         }
       }
+      // &.secondary {
+      //   outline: 1px solid $secondary-color;
+      //   color: $text-color-white;
+      // }
       &.secondary {
-        outline: 1px solid $brand-color-2;
+        &:hover {
+          outline: 1px solid $secondary-color;
+        }
       }
     }
   }

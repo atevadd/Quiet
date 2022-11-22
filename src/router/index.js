@@ -9,7 +9,7 @@ const router = createRouter({
       name: "home",
       component: HomeView,
       meta: {
-        title: "Quiet | Give a piece of your mind without trace",
+        title: "Give a piece of your mind without trace | Quiet",
       },
     },
     {
@@ -17,7 +17,7 @@ const router = createRouter({
       name: "login",
       component: () => import("../views/LoginView.vue"),
       meta: {
-        title: "Quiet | login to continue",
+        title: "Login to continue | Quiet",
       },
     },
     {
