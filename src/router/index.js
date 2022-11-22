@@ -36,6 +36,14 @@ const router = createRouter({
         title: "Quiet | Dashboard",
       },
     },
+    {
+      path: "/messages",
+      name: "message",
+      component: () => import("../views/MessageView.vue"),
+      meta: {
+        title: "Quiet | Messages",
+      },
+    },
   ],
 });
 
