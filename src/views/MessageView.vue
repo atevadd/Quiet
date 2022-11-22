@@ -18,8 +18,6 @@
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum
           explicabo culpa voluptates fugiat facere minima corporis autem libero
           quia similique?
-
-          {{ message }}
         </p>
       </div>
     </div>
