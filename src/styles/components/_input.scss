@@ -16,6 +16,8 @@
     line-height: 1.8;
     font-family: $mont;
     font-size: 0.85rem;
+    color: $text-color-black;
+    font-weight: 500;
 
     &:focus {
       outline: 2px solid $secondary-color;
@@ -28,6 +30,7 @@
     &:focus + label {
       top: 20%;
       font-size: 0.75rem;
+      font-weight: 500;
       left: 5px;
       color: $text-color-grey-200;
     }

@@ -21,6 +21,14 @@ const router = createRouter({
       },
     },
     {
+      path: "/forgot-password",
+      name: "forgot",
+      component: () => import("../views/ForgotPasswordView.vue"),
+      meta: {
+        title: "Login to continue | Quiet",
+      },
+    },
+    {
       path: "/:pathMatch(.*)*",
       name: "error",
       component: () => import("../views/ErrorView.vue"),

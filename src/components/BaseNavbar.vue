@@ -6,7 +6,8 @@
       route.name !== 'login' &&
       route.name !== 'register' &&
       route.name !== 'error' &&
-      route.name !== 'contact'
+      route.name !== 'contact' &&
+      route.name !== 'forgot'
     ">
     <div class="logo">
       <router-link to="/">Quiett</router-link>

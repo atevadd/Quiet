@@ -6,7 +6,7 @@
       <form>
         <AppInput type="email" label="Email" id="email" required />
         <p class="login__forgot">
-          <router-link to="/">Forgot password?</router-link>
+          <router-link :to="{ name: 'forgot' }">Forgot password?</router-link>
         </p>
         <AppInput type="password" label="Password" id="password" required />
         <AppButton id="login__cta" type="submit">Login</AppButton>
