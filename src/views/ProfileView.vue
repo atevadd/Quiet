@@ -24,6 +24,7 @@
                 )
               "
               target="_blank"
+              rel="noopener noreferrer"
               ><i class="uil uil-whatsapp"></i
             ></a>
             <a
@@ -33,6 +34,7 @@
                 )
               "
               target="_blank"
+              rel="noopener noreferrer"
               ><i class="uil uil-facebook-f"></i
             ></a>
             <a
@@ -42,6 +44,7 @@
                 )
               "
               target="_blank"
+              rel="noopener noreferrer"
               ><i class="uil uil-twitter"></i
             ></a>
           </div>
@@ -68,8 +71,6 @@ const copyToClipboard = (e) => {
   if (navigator.clipboard) {
     navigator.clipboard.writeText(link.textContent);
   }
-
-  console.log("copied for clipboard");
 };
 </script>
 

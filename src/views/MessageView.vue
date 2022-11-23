@@ -10,7 +10,7 @@
     <div class="message__container">
       <div class="message__item" v-for="message in 10" :key="message">
         <div class="message-info">
-          <span>Anonymous</span>
+          <!-- <span>Anonymous</span> -->
           <span>&bull;</span>
           <span class="date">Jul 8, 2022 11:20 am</span>
         </div>

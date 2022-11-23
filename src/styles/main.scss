@@ -19,6 +19,39 @@ html,
 body {
   height: 100%;
   font-family: "DM Serif Display", serif;
+
+  scroll-behavior: smooth;
+
+  --scroll-padding: 79px;
+  // customising the scrollbar for firefox
+  scroll-behavior: smooth;
+  scrollbar-track-color: $secondary-color;
+  scrollbar-width: thin;
+  scrollbar-color: $secondary-color transparent;
+  scroll-padding-top: var(--scroll-padding, 79px);
+
+  @include mobile {
+    --scroll-padding: 75px;
+    scroll-padding-top: var(--scroll-padding, 76px);
+  }
+
+  // Customising the scrollbar for chrome and other webkit browsers
+  &::-webkit-scrollbar {
+    width: 0.4vw;
+    cursor: pointer;
+
+    @include mobile {
+      width: 5px;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $brand-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $secondary-color;
+  }
 }
 /*
   Typographic tweaks!
@@ -72,4 +105,9 @@ h6 {
 a {
   text-decoration: none;
   display: inline-block;
+}
+
+::selection {
+  background-color: $secondary-color;
+  color: $text-color-black;
 }

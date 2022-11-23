@@ -1,0 +1,120 @@
+.contact {
+  position: relative;
+  width: 100%;
+  margin-inline: auto;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__container {
+    // outline: 2px solid red;
+    text-align: center;
+
+    @include mobile {
+      width: 90%;
+    }
+    @include tablet {
+      width: 50%;
+    }
+    @include laptop {
+      width: 30%;
+    }
+    @include desktop {
+      width: 20%;
+    }
+    h1 {
+      a {
+        color: $text-color-white;
+      }
+    }
+    p {
+      color: $text-color-grey-100;
+      font-family: $mont;
+      font-size: 0.8rem;
+
+      @include mobile {
+        font-size: 0.75rem;
+      }
+
+      .name {
+        font-weight: 700;
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  &__form {
+    width: 100%;
+    margin-top: 20px;
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      min-height: 200px;
+      resize: none;
+      background-color: $brand-color-2;
+      border-radius: 5px;
+      border: none;
+      color: $text-color-black;
+      font-family: $mont;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+
+      scroll-behavior: smooth;
+
+      --scroll-padding: 79px;
+      // customising the scrollbar for firefox
+      scroll-behavior: smooth;
+      scrollbar-track-color: $secondary-color;
+      scrollbar-width: thin;
+      scrollbar-color: $secondary-color transparent;
+      scroll-padding-top: var(--scroll-padding, 79px);
+
+      @include mobile {
+        --scroll-padding: 75px;
+        scroll-padding-top: var(--scroll-padding, 76px);
+      }
+
+      // Customising the scrollbar for chrome and other webkit browsers
+      &::-webkit-scrollbar {
+        width: 0.4vw;
+        cursor: pointer;
+
+        @include mobile {
+          width: 5px;
+        }
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: $brand-color-2;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $secondary-color;
+      }
+
+      &:focus {
+        outline: 1px solid $secondary-color;
+      }
+      &::placeholder {
+        color: $text-color-black;
+      }
+    }
+  }
+
+  #contact__btn {
+    &:hover {
+      outline: 2px solid $text-color-black;
+      // transform: translateX(10px);
+    }
+    &:hover i {
+      transform: translateX(10px);
+      // font-size: 30px;
+    }
+
+    i {
+      transition: 0.15s ease;
+    }
+  }
+}

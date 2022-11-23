@@ -5,10 +5,11 @@
     v-if="
       route.name !== 'login' &&
       route.name !== 'register' &&
-      route.name !== 'error'
+      route.name !== 'error' &&
+      route.name !== 'contact'
     ">
     <div class="logo">
-      <router-link to="/">Quiet</router-link>
+      <router-link to="/">Quiett</router-link>
     </div>
 
     <nav class="nav">

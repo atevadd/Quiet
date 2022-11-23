@@ -5,7 +5,6 @@
   justify-content: space-between;
   background-color: $brand-color;
   padding: 10px 0;
-  // outline: 1px solid $text-color-white;
   height: auto;
 
   .logo {
@@ -26,7 +25,6 @@
 
       li {
         margin-left: 40px;
-        // background-color: $brand-color-3;
 
         a {
           color: $text-color-white;
@@ -36,16 +34,6 @@
           z-index: 10;
           transition: 0.35s ease;
           font-size: 0.85rem;
-
-          // &::before {
-          //   content: "";
-          //   position: absolute;
-          //   bottom: 0;
-          //   width: 70%;
-          //   height: 40%;
-          //   background-color: rgba($color: $secondary-color, $alpha: 0.5);
-          //   z-index: 1;
-          // }
 
           &.router-link-exact-active {
             &::before {

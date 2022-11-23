@@ -35,7 +35,7 @@ main {
   p {
     font-size: 1.1rem;
     font-family: $mont;
-    font-weight: 500;
+    font-weight: 400;
 
     text-align: center;
     opacity: 0;
@@ -92,9 +92,7 @@ main {
         }
       }
       &.secondary {
-        &:hover {
-          outline: 1px solid $secondary-color;
-        }
+        outline: 1px solid $secondary-color;
       }
     }
   }

@@ -13,7 +13,7 @@ const router = createRouter({
       },
     },
     {
-      path: "/auth/login",
+      path: "/login",
       name: "login",
       component: () => import("../views/LoginView.vue"),
       meta: {
@@ -21,7 +21,7 @@ const router = createRouter({
       },
     },
     {
-      path: "/error",
+      path: "/:pathMatch(.*)*",
       name: "error",
       component: () => import("../views/ErrorView.vue"),
       meta: {
@@ -29,7 +29,7 @@ const router = createRouter({
       },
     },
     {
-      path: "/auth/get-started",
+      path: "/get-started",
       name: "register",
       component: () => import("../views/RegisterView.vue"),
       meta: {
@@ -54,8 +54,8 @@ const router = createRouter({
     },
     {
       path: "/:username",
-      name: "username",
-      component: () => import("../views/UsernameView.vue"),
+      name: "contact",
+      component: () => import("../views/ContactView.vue"),
       meta: {
         title: "Write a piece of your mind here without trace | Quiet",
       },

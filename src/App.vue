@@ -10,25 +10,12 @@ import BaseNavbar from "./components/BaseNavbar.vue";
 </template>
 
 <style lang="scss">
+@import "@/styles/main.scss";
+
 #page {
   width: 100%;
   min-height: 100vh;
-  // border: 6px solid red;
   background-color: $brand-color;
-  // display: grid;
-
-  // @include mobile {
-  //   grid-template-columns: repeat(1, minmax(0, 1fr));
-  // }
-  // @include tablet {
-  //   grid-template-columns: repeat(1, minmax(0, 1fr));
-  // }
-  // @include laptop {
-  //   grid-template-columns: repeat(1, minmax(0, 1fr));
-  // }
-  // @include desktop {
-  //   grid-template-columns: repeat(1, minmax(0, 1fr));
-  // }
 
   & > header {
     align-items: flex-start;
