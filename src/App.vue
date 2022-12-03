@@ -5,7 +5,11 @@ import BaseNavbar from "./components/BaseNavbar.vue";
 <template>
   <div id="page">
     <BaseNavbar />
-    <RouterView />
+    <router-view v-slot="{ Component }">
+      <transition name="page" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </div>
 </template>
 
@@ -39,5 +43,24 @@ import BaseNavbar from "./components/BaseNavbar.vue";
 
 .center {
   margin-inline: auto;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.15s ease-out;
+}
+.page-enter-to {
+  opacity: 1;
+  // transform: translateY(0px);
+}
+.page-enter-from {
+  opacity: 0;
+  // transform: translateY(1000px);
+}
+.page-leave-to {
+  opacity: 0;
+}
+.page-leave-from {
+  opacity: 1;
 }
 </style>
