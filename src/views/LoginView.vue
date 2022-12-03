@@ -1,7 +1,7 @@
 <template>
   <main class="login">
     <div class="login__form">
-      <h1 class="heading"><router-link to="/">Quiet</router-link></h1>
+      <h1 class="heading"><router-link to="/">Quiett</router-link></h1>
       <p class="sub-heading">Welcome back, login to continue</p>
       <form>
         <AppInput type="email" label="Email" id="email" required />

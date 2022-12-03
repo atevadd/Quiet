@@ -1,7 +1,7 @@
 <template>
   <main class="register">
     <div class="register__form">
-      <h1 class="heading"><router-link to="/">Quiet</router-link></h1>
+      <h1 class="heading"><router-link to="/">Quiett</router-link></h1>
       <p class="sub-heading">Create an account to get started</p>
       <form>
         <AppInput type="text" label="Username" id="username" required />
