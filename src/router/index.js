@@ -29,6 +29,14 @@ const router = createRouter({
       },
     },
     {
+      path: "/otp",
+      name: "resetOtp",
+      component: () => import("../views/ForgotOtpView.vue"),
+      meta: {
+        title: "Login to continue | Quiet",
+      },
+    },
+    {
       path: "/:pathMatch(.*)*",
       name: "error",
       component: () => import("../views/ErrorView.vue"),

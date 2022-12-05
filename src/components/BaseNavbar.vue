@@ -2,12 +2,13 @@
   <header
     class="container center"
     id="navbar"
-    v-if="
+    v-show="
       route.name !== 'login' &&
       route.name !== 'register' &&
       route.name !== 'error' &&
       route.name !== 'contact' &&
-      route.name !== 'forgot'
+      route.name !== 'forgot' &&
+      route.name !== 'resetOtp'
     ">
     <div class="logo">
       <router-link to="/">Quiett</router-link>
@@ -20,6 +21,12 @@
           <router-link :to="{ name: 'register' }">Get started</router-link>
         </li>
         <li><router-link :to="{ name: 'login' }">Login</router-link></li>
+        <li v-show="store.isLoggedIn">
+          <router-link :to="{ name: 'login' }">Home</router-link>
+        </li>
+        <li v-show="store.isLoggedIn">
+          <router-link :to="{ name: 'login' }">Logout</router-link>
+        </li>
       </ul>
     </nav>
   </header>
@@ -27,7 +34,12 @@
 
 <script setup>
 import { useRoute } from "vue-router";
+import { useStore } from "../stores/store";
 
+// PINIA STORE
+const store = useStore();
+
+// ROUTE OBJECT
 const route = useRoute();
 </script>
 

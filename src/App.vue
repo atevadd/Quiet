@@ -47,7 +47,7 @@ import BaseNavbar from "./components/BaseNavbar.vue";
 
 .page-enter-active,
 .page-leave-active {
-  transition: all 0.15s ease-out;
+  transition: all 0.1s ease-out;
 }
 .page-enter-to {
   opacity: 1;
