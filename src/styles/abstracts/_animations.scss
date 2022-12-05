@@ -10,3 +10,13 @@
     // transform: scale(1);
   }
 }
+
+// Animation when button is loading
+@keyframes loading {
+  0% {
+    transform: translateX(-25px);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}

@@ -11,6 +11,8 @@
   border: none;
   cursor: pointer;
   transition: box-shadow 0.2s ease;
+  overflow: hidden;
+  z-index: 10;
 
   &:active {
     outline: 2px solid #000000;
@@ -22,5 +24,32 @@
   }
   &:focus {
     outline: 2px solid #000000;
+  }
+  &.loading {
+    position: relative;
+    z-index: 2;
+    color: $text-color-black;
+    user-select: none;
+    pointer-events: none;
+    cursor: wait;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 300%;
+      height: 100%;
+      background: $secondary-color
+        repeating-linear-gradient(
+          60deg,
+          rgba(0, 0, 0, 0.2),
+          rgba(0, 0, 0, 0.2) 10px,
+          lighten($color: $secondary-color, $amount: 0%) 10px,
+          lighten($color: $secondary-color, $amount: 0%) 20px
+        );
+      z-index: -1;
+      animation: loading 1s infinite linear;
+    }
   }
 }

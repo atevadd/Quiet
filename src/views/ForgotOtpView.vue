@@ -12,7 +12,7 @@
           :num-inputs="4"
           :should-auto-focus="true"
           :placeholder="['*', '*', '*', '*']" />
-        <AppButton id="forgot-password__cta" type="submit"
+        <AppButton id="forgot-password__cta" class="loading" type="submit"
           >Verify otp</AppButton
         >
       </form>
@@ -44,14 +44,16 @@ const otpInput = ref(null);
   background-color: $brand-color;
 
   &:focus {
-    outline: 2px solid $text-color-black;
+    outline: 2px solid $text-color-white;
   }
 }
 
 /* Background colour of an input field with value */
 .otp-input.is-complete {
-  background-color: #fff;
-  outline: 2px solid $text-color-black;
+  // background-color: #fff;
+  background-color: $brand-color;
+  outline: 2px solid $secondary-color;
+  color: $text-color-white;
 }
 .otp-input::-webkit-inner-spin-button,
 .otp-input::-webkit-outer-spin-button {
