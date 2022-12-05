@@ -6,7 +6,7 @@
 
     <h1>Give a piece of your mind without trace</h1>
     <p class="center">
-      Recieve and also give feedback about anything anonymously, have fun with
+      Recieve and give feedback about anything anonymously, have fun with
       friends, family, collegues, or anyone through a single link.
     </p>
     <div class="cta">
