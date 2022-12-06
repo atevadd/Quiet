@@ -33,7 +33,15 @@ const router = createRouter({
       name: "resetOtp",
       component: () => import("../views/ForgotOtpView.vue"),
       meta: {
-        title: "Login to continue | Quiet",
+        title: "Reset Password OTP | Quiet",
+      },
+    },
+    {
+      path: "/new-password",
+      name: "resetPassword",
+      component: () => import("../views/ResetPasswordView.vue"),
+      meta: {
+        title: "Reset password | Quiet",
       },
     },
     {

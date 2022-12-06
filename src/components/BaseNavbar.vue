@@ -8,7 +8,8 @@
       route.name !== 'error' &&
       route.name !== 'contact' &&
       route.name !== 'forgot' &&
-      route.name !== 'resetOtp'
+      route.name !== 'resetOtp' &&
+      route.name !== 'resetPassword'
     ">
     <div class="logo">
       <router-link to="/">Quiett</router-link>

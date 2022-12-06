@@ -12,7 +12,7 @@
           :num-inputs="4"
           :should-auto-focus="true"
           :placeholder="['*', '*', '*', '*']" />
-        <AppButton id="forgot-password__cta" class="loading" type="submit"
+        <AppButton id="forgot-password__cta" class="" type="submit"
           >Verify otp</AppButton
         >
       </form>
