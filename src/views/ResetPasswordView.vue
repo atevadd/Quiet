@@ -4,10 +4,16 @@
       <h1 class="heading"><router-link to="/">Quiet</router-link></h1>
       <p class="sub-heading">Create your new password</p>
       <form>
-        <AppInput type="password" label="New password" id="password" required />
+        <AppInput
+          type="password"
+          label="New password"
+          inputmode="text"
+          id="password"
+          required />
         <AppInput
           type="password"
           label="Confirm password"
+          inputmode="text"
           id="c-password"
           required />
         <AppButton id="forgot-password__cta" type="submit"

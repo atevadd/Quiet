@@ -4,11 +4,21 @@
       <h1 class="heading"><router-link to="/">Quiett</router-link></h1>
       <p class="sub-heading">Welcome back, login to continue</p>
       <form>
-        <AppInput type="email" label="Email" id="email" required />
+        <AppInput
+          type="email"
+          label="Email"
+          id="email"
+          inputmode="email"
+          required />
         <p class="login__forgot">
           <router-link :to="{ name: 'forgot' }">Forgot password?</router-link>
         </p>
-        <AppInput type="password" label="Password" id="password" required />
+        <AppInput
+          type="password"
+          inputmode="text"
+          label="Password"
+          id="password"
+          required />
         <AppButton id="login__cta" type="submit">Login</AppButton>
       </form>
       <p class="login__signup">
