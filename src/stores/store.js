@@ -5,6 +5,7 @@ export const useStore = defineStore("store", {
     return {
       isLoggedIn: false,
       user: [],
+      notification: null,
     };
   },
   getters: {},

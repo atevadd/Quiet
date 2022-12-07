@@ -12,7 +12,10 @@
         <div class="message-info">
           <!-- <span>Anonymous</span> -->
           <span>&bull;</span>
-          <span class="date">Jul 8, 2022 11:20 am</span>
+          <span class="date"
+            >{{ moment(currentDate).format("ll") }} -
+            {{ moment(currentDate).format("LT") }}</span
+          >
         </div>
         <p class="message__recieved">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum
@@ -32,7 +35,11 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import moment from "moment";
+
+const currentDate = new Date();
+</script>
 
 <style lang="scss" scoped>
 @import "@/styles/views/_message.scss";

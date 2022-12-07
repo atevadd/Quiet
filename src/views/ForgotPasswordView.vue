@@ -1,7 +1,7 @@
 <template>
   <main class="forgot-password">
     <div class="forgot-password__form">
-      <h1 class="heading"><router-link to="/">Quiet</router-link></h1>
+      <h1 class="heading"><router-link to="/">Quiett</router-link></h1>
       <p class="sub-heading">Forgot password? Enter your email to reset</p>
       <form>
         <AppInput type="email" label="Email" id="email" required />
@@ -14,8 +14,18 @@
 </template>
 
 <script setup>
+import { onMounted } from "vue";
 import AppButton from "../components/AppButton.vue";
 import AppInput from "../components/AppInput.vue";
+import { useStore } from "../stores/store";
+
+const store = useStore();
+
+onMounted(() => {
+  setTimeout(() => {
+    store.notification = "Welcome to this page";
+  }, 4000);
+});
 </script>
 
 <style lang="scss" scoped>

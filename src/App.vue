@@ -1,5 +1,6 @@
 <script setup>
 import BaseNavbar from "./components/BaseNavbar.vue";
+import AppNotification from "./components/AppNotification.vue";
 </script>
 
 <template>
@@ -10,6 +11,7 @@ import BaseNavbar from "./components/BaseNavbar.vue";
         <component :is="Component" />
       </transition>
     </router-view>
+    <AppNotification />
   </div>
 </template>
 
