@@ -19,7 +19,12 @@
           label="Password"
           id="password"
           required />
-        <AppButton id="login__cta" type="submit">Login</AppButton>
+        <AppButton
+          :class="{ loading: store.isLoading }"
+          id="login__cta"
+          type="submit"
+          >Login</AppButton
+        >
       </form>
       <p class="login__signup">
         New to Quiet?
@@ -32,6 +37,10 @@
 <script setup>
 import AppButton from "../components/AppButton.vue";
 import AppInput from "../components/AppInput.vue";
+import { useStore } from "../stores/store";
+import { onMounted } from "vue";
+
+const store = useStore();
 </script>
 
 <style lang="scss" scoped>

@@ -4,6 +4,7 @@ export const useStore = defineStore("store", {
   state: () => {
     return {
       isLoggedIn: false,
+      isLoading: false,
       user: [],
       notification: null,
     };

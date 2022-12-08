@@ -10,7 +10,10 @@
           inputmode="email"
           id="email"
           required />
-        <AppButton id="forgot-password__cta" type="submit"
+        <AppButton
+          :class="{ loading: store.isLoading }"
+          id="forgot-password__cta"
+          type="submit"
           >Reset password</AppButton
         >
       </form>
@@ -25,12 +28,6 @@ import AppInput from "../components/AppInput.vue";
 import { useStore } from "../stores/store";
 
 const store = useStore();
-
-onMounted(() => {
-  setTimeout(() => {
-    store.notification = "Welcome to this page";
-  }, 4000);
-});
 </script>
 
 <style lang="scss" scoped>
