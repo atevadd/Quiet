@@ -8,6 +8,7 @@
     <p class="center">
       Recieve and give feedback about anything anonymously, have fun with
       friends, family, collegues, or anyone through a single link.
+      <img src="@/assets/q-logo.png" alt="" />
     </p>
     <div class="cta">
       <router-link :to="{ name: 'register' }" class="cta__link primary"
