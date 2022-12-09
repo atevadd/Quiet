@@ -20,7 +20,9 @@
             <a
               :href="
                 generateLink(
-                  `https://api.whatsapp.com/send?text=Give a piece of your mind without trace https://quiett.fun/atevadd`
+                  `https://api.whatsapp.com/send?text=Give a piece of your mind without trace 
+                  
+https://quiett.fun/atevadd`
                 )
               "
               target="_blank"
@@ -40,7 +42,9 @@
             <a
               :href="
                 generateLink(
-                  `https://twitter.com/intent/tweet?url=Give a piece of your mind without trace using this link https://quiett.fun/atevadd`
+                  `https://twitter.com/intent/tweet?url=Give a piece of your mind without trace using this link 
+                  
+https://quiett.fun/atevadd`
                 )
               "
               target="_blank"
