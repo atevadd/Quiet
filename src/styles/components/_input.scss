@@ -41,6 +41,12 @@
       font-size: 0.75rem;
       color: $text-color-grey-200;
     }
+    &.error {
+      outline: 2px solid #e23636;
+    }
+    &.success {
+      outline: 2px solid #82dd55;
+    }
   }
   &__label {
     position: absolute;
@@ -66,5 +72,10 @@
     font-size: 1.35rem;
     color: $text-color-grey-200;
     cursor: pointer;
+
+    &.success {
+      transition: all 0.1s ease-in;
+      color: #27ae60;
+    }
   }
 }

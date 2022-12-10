@@ -1,6 +1,6 @@
 <template>
   <main class="profile">
-    <h1>John's profile</h1>
+    <h1>{{ store.userDetails?.username }}'s profile</h1>
     <div class="profile__container">
       <div class="profile__link">
         <h3>Share your profile link</h3>
@@ -12,7 +12,7 @@
         <div class="link-container">
           <div class="link">
             <p id="profile-link" @click="copyToClipboard($event)">
-              https://quiett.fun/atevadd
+              https://quiett.fun/{{ store.userDetails?.username }}
             </p>
             <i class="uil uil-copy-alt" @click="copyToClipboard($event)"></i>
           </div>
@@ -22,7 +22,7 @@
                 generateLink(
                   `https://api.whatsapp.com/send?text=Give a piece of your mind without trace 
                   
-https://quiett.fun/atevadd`
+https://quiett.fun/${store.userDetails?.username}`
                 )
               "
               target="_blank"
@@ -32,7 +32,7 @@ https://quiett.fun/atevadd`
             <a
               :href="
                 generateLink(
-                  `https://www.facebook.com/sharer/?u=https://quiett.fun/atevadd`
+                  `https://www.facebook.com/sharer/?u=https://quiett.fun/${store.userDetails?.username}`
                 )
               "
               target="_blank"
@@ -44,7 +44,7 @@ https://quiett.fun/atevadd`
                 generateLink(
                   `https://twitter.com/intent/tweet?url=Give a piece of your mind without trace using this link 
                   
-https://quiett.fun/atevadd`
+https://quiett.fun/${store.userDetails?.username}`
                 )
               "
               target="_blank"
@@ -64,6 +64,11 @@ https://quiett.fun/atevadd`
 </template>
 
 <script setup>
+import { useStore } from "../stores/store";
+
+// STORE
+const store = useStore();
+
 // Generate social media links
 const generateLink = (link) => {
   return encodeURI(link);

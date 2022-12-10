@@ -3,13 +3,14 @@
     <div class="login__form">
       <h1 class="heading"><router-link to="/">Quiett</router-link></h1>
       <p class="sub-heading">Welcome back, login to continue</p>
-      <form>
+      <form @submit.prevent="loginUser">
         <AppInput
           type="email"
           label="Email"
           id="email"
           inputmode="email"
-          required />
+          required
+          v-model="store.loginDetails.email" />
         <p class="login__forgot">
           <router-link :to="{ name: 'forgot' }">Forgot password?</router-link>
         </p>
@@ -18,7 +19,8 @@
           inputmode="text"
           label="Password"
           id="password"
-          required />
+          required
+          v-model="store.loginDetails.password" />
         <AppButton
           :class="{ loading: store.isLoading }"
           id="login__cta"
@@ -38,9 +40,50 @@
 import AppButton from "../components/AppButton.vue";
 import AppInput from "../components/AppInput.vue";
 import { useStore } from "../stores/store";
-import { onMounted } from "vue";
+import axios from "axios";
+import { useRouter } from "vue-router";
 
+// STORE
 const store = useStore();
+// ROUTER
+const router = useRouter();
+
+// Login User
+const loginUser = () => {
+  try {
+    store.isLoading = true;
+    axios
+      .post("/login", store.loginDetails)
+      .then((response) => {
+        // Storing userdetails
+        store.userDetails = response.data.data;
+        store.token = response.data?.access_token;
+
+        // remove the button laoding state
+        store.isLoading = false;
+
+        // clearing loginDetails
+        store.loginDetails = {
+          email: "",
+          password: "",
+        };
+
+        store.notification = "Login successful";
+
+        // Redirect to homepage
+        router.push({ name: "profile" });
+      })
+      .catch((error) => {
+        console.log(error);
+        store.isLoading = false;
+        if (error.response.data.status === "false") {
+          store.notification = error.response.data.message;
+        }
+      });
+  } catch (error) {
+    console.log(error);
+  }
+};
 </script>
 
 <style lang="scss" scoped>

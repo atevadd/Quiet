@@ -5,12 +5,16 @@
       :id="id"
       v-bind="$attrs"
       :value="modelValue"
-      class="input__field" />
+      class="input__field"
+      @input="$emit('update:modelValue', $event.target.value)" />
     <label :for="id" class="input__label">{{ label }}</label>
     <i
       class="uil uil-eye"
       @click="togglePasswordVisibility($event)"
       v-show="type === 'password'"></i>
+    <i
+      class="uil uil-check-circle success"
+      v-show="id == 'username' && valid == false"></i>
   </div>
 </template>
 
@@ -30,6 +34,10 @@ const props = defineProps({
   label: {
     type: String,
     default: "Name",
+  },
+  valid: {
+    type: Boolean,
+    value: true,
   },
   modelValue: {
     type: String,

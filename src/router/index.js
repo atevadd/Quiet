@@ -9,7 +9,7 @@ const router = createRouter({
       name: "home",
       component: HomeView,
       meta: {
-        title: "Give a piece of your mind without trace | Quiet",
+        title: "Give a piece of your mind without trace | Quiett",
       },
     },
     {
@@ -17,7 +17,7 @@ const router = createRouter({
       name: "login",
       component: () => import("../views/LoginView.vue"),
       meta: {
-        title: "Login to continue | Quiet",
+        title: "Login to continue | Quiett",
       },
     },
     {
@@ -25,7 +25,7 @@ const router = createRouter({
       name: "forgot",
       component: () => import("../views/ForgotPasswordView.vue"),
       meta: {
-        title: "Login to continue | Quiet",
+        title: "Login to continue | Quiett",
       },
     },
     {
@@ -33,7 +33,7 @@ const router = createRouter({
       name: "resetOtp",
       component: () => import("../views/ForgotOtpView.vue"),
       meta: {
-        title: "Reset Password OTP | Quiet",
+        title: "Reset Password OTP | Quiett",
       },
     },
     {
@@ -41,7 +41,7 @@ const router = createRouter({
       name: "resetPassword",
       component: () => import("../views/ResetPasswordView.vue"),
       meta: {
-        title: "Reset password | Quiet",
+        title: "Reset password | Quiett",
       },
     },
     {
@@ -49,7 +49,7 @@ const router = createRouter({
       name: "error",
       component: () => import("../views/ErrorView.vue"),
       meta: {
-        title: "Login to continue | Quiet",
+        title: "Login to continue | Quiett",
       },
     },
     {
@@ -57,7 +57,7 @@ const router = createRouter({
       name: "register",
       component: () => import("../views/RegisterView.vue"),
       meta: {
-        title: "Quiet | Get started with Quiet",
+        title: "Get started with Quiett | Quiett",
       },
     },
     {
@@ -65,7 +65,7 @@ const router = createRouter({
       name: "profile",
       component: () => import("../views/ProfileView.vue"),
       meta: {
-        title: "Quiet | Dashboard",
+        title: "Dashboard | Quiett",
       },
     },
     {
@@ -73,7 +73,7 @@ const router = createRouter({
       name: "message",
       component: () => import("../views/MessageView.vue"),
       meta: {
-        title: "Quiet | Messages",
+        title: "Messages | Quiett",
       },
     },
     {
@@ -81,7 +81,7 @@ const router = createRouter({
       name: "contact",
       component: () => import("../views/ContactView.vue"),
       meta: {
-        title: "Write a piece of your mind here without trace | Quiet",
+        title: "Write a piece of your mind here without trace | Quiett",
       },
     },
   ],

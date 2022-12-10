@@ -5,8 +5,19 @@ export const useStore = defineStore("store", {
     return {
       isLoggedIn: false,
       isLoading: false,
-      user: [],
+      registerDetails: {
+        username: "",
+        email: "",
+        password: "",
+      },
+      loginDetails: {
+        email: "",
+        password: "",
+      },
+      userDetails: {},
+      token: null,
       notification: null,
+      hasError: true,
     };
   },
   getters: {},
