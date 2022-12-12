@@ -20,6 +20,8 @@
           label="Password"
           id="password"
           required
+          minlength="8"
+          title="Password must be at least 8 Characters"
           v-model="store.loginDetails.password" />
         <AppButton
           :class="{ loading: store.isLoading }"

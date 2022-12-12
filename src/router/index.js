@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import { verifyUser } from "../assets/js/helper";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -82,6 +83,14 @@ const router = createRouter({
       component: () => import("../views/ContactView.vue"),
       meta: {
         title: "Write a piece of your mind here without trace | Quiett",
+      },
+      beforeEnter: async (to, from) => {
+        if ((await verifyUser(to.params?.username)) === true) {
+          return true;
+        } else {
+          console.log("does not exist");
+          return { name: "error" };
+        }
       },
     },
   ],

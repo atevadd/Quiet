@@ -79,6 +79,7 @@ const copyToClipboard = (e) => {
 
   if (navigator.clipboard) {
     navigator.clipboard.writeText(link.textContent);
+    store.notification = "Link copied to clipboard";
   }
 };
 </script>

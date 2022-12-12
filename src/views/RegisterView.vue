@@ -12,6 +12,7 @@
           :valid="store.hasError"
           v-model="store.registerDetails.username"
           @blur="validateUser"
+          autocomplete="off"
           required />
         <AppInput
           type="email"
@@ -95,7 +96,6 @@ const validateUser = () => {
       axios
         .get(`/${store.registerDetails.username}`)
         .then((response) => {
-          console.log(response);
           if (response.data.status === "false") {
             store.notification = response.data.message;
             store.hasError = true;
