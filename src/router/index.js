@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import { verifyUser } from "../assets/js/helper";
+import { useStore } from "../stores/store";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -68,6 +69,15 @@ const router = createRouter({
       meta: {
         title: "Dashboard | Quiett",
       },
+      beforeEnter(to, from) {
+        const store = useStore();
+
+        if (store.isLoggedIn === true) {
+          return true;
+        } else {
+          return { name: "login" };
+        }
+      },
     },
     {
       path: "/messages",
@@ -75,6 +85,15 @@ const router = createRouter({
       component: () => import("../views/MessageView.vue"),
       meta: {
         title: "Messages | Quiett",
+      },
+      beforeEnter(to, from) {
+        const store = useStore();
+
+        if (store.isLoggedIn === true) {
+          return true;
+        } else {
+          return { name: "login" };
+        }
       },
     },
     {

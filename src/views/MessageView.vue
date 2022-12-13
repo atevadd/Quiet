@@ -1,5 +1,5 @@
 <template>
-  <div class="message" v-if="true">
+  <div class="message" v-if="store.allMessages.length > 0">
     <header>
       <h1>Your messages</h1>
       <p>
@@ -8,19 +8,20 @@
       </p>
     </header>
     <div class="message__container">
-      <div class="message__item" v-for="message in 10" :key="message">
+      <div
+        class="message__item"
+        v-for="message in store.allMessages"
+        :key="message.id">
         <div class="message-info">
           <!-- <span>Anonymous</span> -->
           <span>&bull;</span>
           <span class="date"
-            >{{ moment(currentDate).format("ll") }} -
-            {{ moment(currentDate).format("LT") }}</span
+            >{{ moment(message.created_at).format("ll") }} -
+            {{ moment(message.created_at).format("LT") }}</span
           >
         </div>
         <p class="message__recieved">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum
-          explicabo culpa voluptates fugiat facere minima corporis autem libero
-          quia similique?
+          {{ message.message }}
         </p>
       </div>
     </div>
@@ -37,8 +38,9 @@
 
 <script setup>
 import moment from "moment";
+import { useStore } from "../stores/store";
 
-const currentDate = new Date();
+const store = useStore();
 </script>
 
 <style lang="scss" scoped>

@@ -18,12 +18,14 @@
     <nav class="nav">
       <ul>
         <!-- <li><router-link to="/">Home</router-link></li> -->
-        <li>
+        <li v-show="!store.isLoggedIn">
           <router-link :to="{ name: 'register' }">Get started</router-link>
         </li>
-        <li><router-link :to="{ name: 'login' }">Login</router-link></li>
+        <li v-show="!store.isLoggedIn">
+          <router-link :to="{ name: 'login' }">Login</router-link>
+        </li>
         <li v-show="store.isLoggedIn">
-          <router-link :to="{ name: 'login' }">Home</router-link>
+          <router-link :to="{ name: 'profile' }">Home</router-link>
         </li>
         <li v-show="store.isLoggedIn">
           <router-link :to="{ name: 'login' }">Logout</router-link>

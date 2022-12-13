@@ -50,7 +50,7 @@ const store = useStore();
 // ROUTER
 const router = useRouter();
 
-// Login User
+// // Login User
 const loginUser = () => {
   try {
     store.isLoading = true;
@@ -60,20 +60,21 @@ const loginUser = () => {
         // Storing userdetails
         store.userDetails = response.data.data;
         store.token = response.data?.access_token;
+        store.isLoggedIn = true;
 
         // remove the button laoding state
         store.isLoading = false;
+
+        store.notification = "Login successful";
+
+        // Redirect to homepage
+        router.push({ name: "profile" });
 
         // clearing loginDetails
         store.loginDetails = {
           email: "",
           password: "",
         };
-
-        store.notification = "Login successful";
-
-        // Redirect to homepage
-        router.push({ name: "profile" });
       })
       .catch((error) => {
         console.log(error);

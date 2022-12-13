@@ -42,7 +42,7 @@ const sendMessage = () => {
 
     // API CALL
     axios
-      .post("/message", null, {
+      .post("/send_message", null, {
         params: {
           username: route.params?.username,
           message: store.anonymousMessage,

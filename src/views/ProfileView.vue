@@ -20,7 +20,7 @@
             <a
               :href="
                 generateLink(
-                  `https://api.whatsapp.com/send?text=Give a piece of your mind without trace 
+                  `https://api.whatsapp.com/send?text=Give a piece of your mind without trace using this link  
                   
 https://quiett.fun/${store.userDetails?.username}`
                 )
@@ -65,6 +65,7 @@ https://quiett.fun/${store.userDetails?.username}`
 
 <script setup>
 import { useStore } from "../stores/store";
+import { onMounted } from "vue";
 
 // STORE
 const store = useStore();
@@ -78,10 +79,18 @@ const copyToClipboard = (e) => {
   const link = document.getElementById("profile-link");
 
   if (navigator.clipboard) {
-    navigator.clipboard.writeText(link.textContent);
+    navigator.clipboard
+      .writeText(`Give a piece of your mind about me without trace
+    
+${link.textContent}`);
     store.notification = "Link copied to clipboard";
   }
 };
+
+// On page mounted get user messages
+onMounted(() => {
+  store.getAllMessages();
+});
 </script>
 
 <style lang="scss" scoped>
