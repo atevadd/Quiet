@@ -75,6 +75,7 @@ const generateLink = (link) => {
   return encodeURI(link);
 };
 
+// Copied link to clipboard
 const copyToClipboard = (e) => {
   const link = document.getElementById("profile-link");
 

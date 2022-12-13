@@ -1,5 +1,5 @@
 <template>
-  <div class="message" v-if="store.allMessages.length > 0">
+  <div class="message" v-if="allMessages.length > 0">
     <header>
       <h1>Your messages</h1>
       <p>
@@ -10,7 +10,7 @@
     <div class="message__container">
       <div
         class="message__item"
-        v-for="message in store.allMessages"
+        v-for="message in allMessages"
         :key="message.id">
         <div class="message-info">
           <!-- <span>Anonymous</span> -->
@@ -39,8 +39,19 @@
 <script setup>
 import moment from "moment";
 import { useStore } from "../stores/store";
+import { onMounted } from "vue";
+import { storeToRefs } from "pinia";
 
 const store = useStore();
+
+const { allMessages } = storeToRefs(store);
+
+// Get user messages every 5 seconds
+onMounted(() => {
+  setInterval(() => {
+    store.getAllMessages();
+  }, 60000);
+});
 </script>
 
 <style lang="scss" scoped>

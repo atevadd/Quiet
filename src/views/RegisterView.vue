@@ -26,6 +26,7 @@
           label="Password"
           inputmode="text"
           id="password"
+          minlength="8"
           v-model="store.registerDetails.password"
           required />
         <AppButton

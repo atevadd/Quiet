@@ -34,7 +34,6 @@ export const useStore = defineStore("store", {
           },
         })
         .then((response) => {
-          console.log(response);
           if (response.data.status === "true") {
             this.allMessages = response.data.data?.reverse();
           }
