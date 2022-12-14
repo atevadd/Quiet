@@ -21,7 +21,7 @@ const message = computed(() => {
 watch(message, () => {
   setTimeout(() => {
     store.notification = null;
-  }, 4000);
+  }, 2500);
 });
 </script>
 

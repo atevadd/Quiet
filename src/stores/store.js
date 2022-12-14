@@ -7,6 +7,7 @@ export const useStore = defineStore("store", {
     return {
       isLoggedIn: false,
       isLoading: false,
+      loaderIsActive: false,
       registerDetails: {
         username: "",
         email: "",
@@ -41,6 +42,16 @@ export const useStore = defineStore("store", {
         .catch((error) => {
           console.log(error);
         });
+    },
+    logout() {
+      // Clearing the uer details
+      this.userDetails = {};
+
+      // Clearing the user access token
+      this.token = {};
+
+      // setting the logged in state to false
+      this.isLoggedIn = false;
     },
   },
 });
