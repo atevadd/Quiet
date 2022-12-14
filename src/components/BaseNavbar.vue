@@ -28,7 +28,7 @@
           <router-link :to="{ name: 'profile' }">Home</router-link>
         </li>
         <li v-show="store.isLoggedIn">
-          <router-link :to="{ name: 'login' }">Logout</router-link>
+          <router-link to="#">Logout</router-link>
         </li>
       </ul>
     </nav>

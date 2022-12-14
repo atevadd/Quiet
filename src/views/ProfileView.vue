@@ -20,7 +20,7 @@
             <a
               :href="
                 generateLink(
-                  `https://api.whatsapp.com/send?text=Give a piece of your mind without trace using this link  
+                  `https://api.whatsapp.com/send?text=Give a piece of your mind about me without trace  
                   
 https://quiett.fun/${store.userDetails?.username}`
                 )
@@ -42,7 +42,7 @@ https://quiett.fun/${store.userDetails?.username}`
             <a
               :href="
                 generateLink(
-                  `https://twitter.com/intent/tweet?url=Give a piece of your mind without trace using this link 
+                  `https://twitter.com/intent/tweet?url=Give a piece of your mind about me without trace 
                   
 https://quiett.fun/${store.userDetails?.username}`
                 )
@@ -80,10 +80,7 @@ const copyToClipboard = (e) => {
   const link = document.getElementById("profile-link");
 
   if (navigator.clipboard) {
-    navigator.clipboard
-      .writeText(`Give a piece of your mind about me without trace
-    
-${link.textContent}`);
+    navigator.clipboard.writeText(`${link.textContent}`);
     store.notification = "Link copied to clipboard";
   }
 };

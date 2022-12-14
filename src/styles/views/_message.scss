@@ -63,7 +63,7 @@
   }
 
   &__container {
-    width: 90%;
+    width: 70%;
     margin-inline: auto;
     margin-top: 20px;
     padding-bottom: 20px;
@@ -71,16 +71,17 @@
     gap: 15px;
 
     @include mobile {
+      width: 90%;
       grid-template-columns: repeat(1, minmax(0, 1fr));
     }
     @include tablet {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     @include laptop {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
     @include desktop {
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
 
