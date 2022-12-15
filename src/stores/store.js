@@ -52,6 +52,9 @@ export const useStore = defineStore("store", {
 
       // setting the logged in state to false
       this.isLoggedIn = false;
+
+      // Show the user a success message
+      this.notification = "Logout Successful";
     },
   },
 });

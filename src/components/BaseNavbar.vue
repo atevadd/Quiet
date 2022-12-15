@@ -1,16 +1,5 @@
 <template>
-  <header
-    class="container center"
-    id="navbar"
-    v-show="
-      route.name !== 'login' &&
-      route.name !== 'register' &&
-      route.name !== 'error' &&
-      route.name !== 'contact' &&
-      route.name !== 'forgot' &&
-      route.name !== 'resetOtp' &&
-      route.name !== 'resetPassword'
-    ">
+  <header class="container center" id="navbar" v-if="checkRoute">
     <div class="logo">
       <router-link to="/">Quiett</router-link>
     </div>
@@ -28,7 +17,7 @@
           <router-link :to="{ name: 'profile' }">Home</router-link>
         </li>
         <li v-show="store.isLoggedIn">
-          <router-link to="#" @click="logoutUser">Logout</router-link>
+          <button @click="logoutUser">Logout</button>
         </li>
       </ul>
     </nav>
@@ -36,6 +25,7 @@
 </template>
 
 <script setup>
+import { computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "../stores/store";
 
@@ -60,6 +50,22 @@ const logoutUser = () => {
     store.loaderIsActive = false;
   }, 3000);
 };
+
+const checkRoute = computed(() => {
+  if (
+    route.name !== "login" &&
+    route.name !== "register" &&
+    route.name !== "error" &&
+    route.name !== "contact" &&
+    route.name !== "forgot" &&
+    route.name !== "resetOtp" &&
+    route.name !== "resetPassword"
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+});
 </script>
 
 <style lang="scss" scoped>
