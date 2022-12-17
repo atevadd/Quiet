@@ -5,12 +5,12 @@
       <p class="sub-heading">Welcome back, login to continue</p>
       <form @submit.prevent="loginUser">
         <AppInput
-          type="email"
-          label="Email"
-          id="email"
-          inputmode="email"
+          type="text"
+          label="username"
+          id="user"
+          inputmode="text"
           required
-          v-model="store.loginDetails.email" />
+          v-model="store.loginDetails.username" />
         <p class="login__forgot">
           <router-link :to="{ name: 'forgot' }">Forgot password?</router-link>
         </p>
