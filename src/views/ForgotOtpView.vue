@@ -1,7 +1,7 @@
 <template>
   <main class="reset-otp">
     <div class="reset-otp__container">
-      <h1 class="heading"><router-link to="/">Quiet</router-link></h1>
+      <h1 class="heading"><router-link to="/">Quiett</router-link></h1>
       <p class="sub-heading">Enter OTP sent to your email address</p>
       <form @submit.prevent="handleOnComplete">
         <VOtpInput
@@ -17,7 +17,7 @@
           id="forgot-password__cta"
           :class="{ loading: store.isLoading }"
           type="submit"
-          >Verify otp</AppButton
+          >Verify OTP</AppButton
         >
       </form>
     </div>

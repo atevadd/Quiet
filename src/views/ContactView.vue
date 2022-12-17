@@ -10,7 +10,7 @@
       <form class="contact__form" @submit.prevent="sendMessage">
         <textarea
           id="contact-textarea"
-          :placeholder="`Write a message to ${route.params?.username}`"
+          :placeholder="`Write a message to ${route.params?.username}...`"
           v-model="store.anonymousMessage"></textarea>
 
         <AppButton id="contact__btn" :class="{ loading: store.isLoading }"
@@ -24,7 +24,7 @@
         <span class="name">{{ route.params.username }}</span> has recieved your
         response.
       </h1>
-      <p>Sign up to get your own feedback</p>
+      <p>Sign up to get your own feedback.</p>
       <router-link :to="{ name: 'register' }" class="cta"
         >Get started on Quiett</router-link
       >

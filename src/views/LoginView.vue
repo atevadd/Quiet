@@ -31,7 +31,7 @@
         >
       </form>
       <p class="login__signup">
-        New to Quiet?
+        New to Quiett?
         <router-link :to="{ name: 'register' }">Get started</router-link>
       </p>
     </div>
