@@ -23,6 +23,11 @@ export const useStore = defineStore("store", {
       hasError: true,
       anonymousMessage: "",
       allMessages: [],
+      isFocus: false,
+      focus: {
+        date: null,
+        message: null,
+      },
     };
   },
   getters: {},
