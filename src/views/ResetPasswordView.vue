@@ -65,11 +65,24 @@ const createNewPassword = () => {
             // console.log(response);
 
             if (response.data.status === "true") {
+              // Clearing the forgot password details
+              store.forgotPasswordDetails = {
+                email: "",
+                token: "",
+                otp: "",
+              };
+
+              // Clearing the resetpassword data
+              store.resetPassword = {
+                password: "",
+                newPassword: "",
+              };
+
               // display success message
               store.notification = "Password changed sucessfully";
 
               // Redirect to login after change
-              router.push({ name: "Login" });
+              router.push({ name: "login" });
             }
           })
           .catch((error) => {

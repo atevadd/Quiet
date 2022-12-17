@@ -6,7 +6,7 @@
       <form @submit.prevent="loginUser">
         <AppInput
           type="text"
-          label="username"
+          label="Username"
           id="user"
           inputmode="text"
           required
