@@ -14,7 +14,7 @@ export const useStore = defineStore("store", {
         password: "",
       },
       loginDetails: {
-        email: "",
+        username: "",
         password: "",
       },
       userDetails: {},
@@ -27,6 +27,15 @@ export const useStore = defineStore("store", {
       focus: {
         date: null,
         message: null,
+      },
+      forgotPasswordDetails: {
+        email: "",
+        token: "",
+        otp: "",
+      },
+      resetPassword: {
+        password: "",
+        newPassword: "",
       },
     };
   },

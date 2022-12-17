@@ -27,7 +27,7 @@ const router = createRouter({
       name: "forgot",
       component: () => import("../views/ForgotPasswordView.vue"),
       meta: {
-        title: "Login to continue | Quiett",
+        title: "Forgot password | Quiett",
       },
     },
     {
@@ -51,7 +51,7 @@ const router = createRouter({
       name: "error",
       component: () => import("../views/ErrorView.vue"),
       meta: {
-        title: "Login to continue | Quiett",
+        title: "Sorry, this page could not be found | Quiett",
       },
     },
     {

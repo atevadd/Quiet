@@ -23,19 +23,6 @@ import moment from "moment";
 import { useStore } from "../stores/store";
 
 const store = useStore();
-
-// const props = defineProps({
-//   date: {
-//     type: String,
-//     required: true,
-//     default: "Sat Dec 17 2022 07:51:21 GMT+0100",
-//   },
-//   message: {
-//     type: String,
-//     required: true,
-//     default: "Anonymouse message recieved",
-//   },
-// });
 </script>
 
 <style lang="scss" scoped>

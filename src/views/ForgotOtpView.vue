@@ -3,7 +3,7 @@
     <div class="reset-otp__container">
       <h1 class="heading"><router-link to="/">Quiet</router-link></h1>
       <p class="sub-heading">Enter OTP sent to your email address</p>
-      <form>
+      <form @submit.prevent="handleOnComplete">
         <VOtpInput
           id="otp"
           ref="otpInput"
@@ -11,8 +11,12 @@
           separator="-"
           :num-inputs="4"
           :should-auto-focus="true"
-          :placeholder="['*', '*', '*', '*']" />
-        <AppButton id="forgot-password__cta" class="" type="submit"
+          :placeholder="['*', '*', '*', '*']"
+          @on-complete="handleOnComplete" />
+        <AppButton
+          id="forgot-password__cta"
+          :class="{ loading: store.isLoading }"
+          type="submit"
           >Verify otp</AppButton
         >
       </form>
@@ -24,9 +28,37 @@
 import AppButton from "../components/AppButton.vue";
 import VOtpInput from "vue3-otp-input";
 import { ref } from "vue";
+import { useStore } from "../stores/store";
+import { useRouter } from "vue-router";
 
 // OTP INPUT
 const otpInput = ref(null);
+
+// router
+const router = useRouter();
+
+const store = useStore();
+
+// On OTP input complete
+const handleOnComplete = (value) => {
+  store.forgotPasswordDetails.otp = Number(value);
+
+  store.isLoading = true;
+  // check the otp and token
+  setTimeout(() => {
+    if (store.forgotPasswordDetails.otp !== store.forgotPasswordDetails.token) {
+      otpInput.value.clearInput();
+
+      // display notification
+      store.notification = "OTP is not correct";
+
+      store.isLoading = false;
+    } else {
+      router.push({ name: "resetPassword" });
+      store.isLoading = false;
+    }
+  }, 3000);
+};
 </script>
 
 <style lang="scss">
