@@ -95,15 +95,25 @@
     line-height: 1.6;
     font-size: 0.85rem;
     background-color: $brand-color-2;
-    cursor: pointer;
 
     .message-info {
+      position: relative;
       font-family: $serif;
       color: $secondary-color;
       display: flex;
       align-items: center;
       gap: 5px;
       margin-bottom: 10px;
+
+      #focus {
+        // position: absolute;
+        // top: 0;
+        // right: 0;
+        color: $text-color-grey-100;
+        font-size: 1rem;
+        margin-left: auto;
+        cursor: pointer;
+      }
     }
   }
 }

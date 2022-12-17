@@ -12,8 +12,7 @@
         <div
           class="message__item"
           v-for="message in allMessages"
-          :key="message.id"
-          @click="openFocus(message.created_at, message.message)">
+          :key="message.id">
           <div class="message-info">
             <!-- <span>Anonymous</span> -->
             <span>&bull;</span>
@@ -21,6 +20,13 @@
               >{{ moment(message.created_at).format("ll") }} -
               {{ moment(message.created_at).format("LT") }}</span
             >
+
+            <!-- Focus icon -->
+            <i
+              class="uil uil-focus"
+              id="focus"
+              @click="openFocus(message.created_at, message.message)"
+              title="Click to focus message"></i>
           </div>
           <p class="message__recieved">
             {{ message.message }}
