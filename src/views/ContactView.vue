@@ -1,6 +1,6 @@
 <template>
   <main class="contact">
-    <div class="contact__container">
+    <div class="contact__container" v-if="!store.feedbackIsActive">
       <h1><router-link to="/">Quiett</router-link></h1>
       <p>
         Write a piece of your mind to
@@ -17,6 +17,17 @@
           ><span>Send message</span> <i class="uil uil-message"></i
         ></AppButton>
       </form>
+    </div>
+
+    <div class="feedback__container" v-else>
+      <h1>
+        <span class="name">{{ route.params.username }}</span> has recieved your
+        response.
+      </h1>
+      <p>Sign up to get your own feedback</p>
+      <router-link :to="{ name: 'register' }" class="cta"
+        >Get started on Quiett</router-link
+      >
     </div>
   </main>
 </template>
@@ -55,6 +66,7 @@ const sendMessage = () => {
         // Checking if the request was successful and displaying a message
         if (response.data.status === "true") {
           store.notification = response.data.message;
+          store.feedbackIsActive = true;
         }
       })
       .catch((error) => {

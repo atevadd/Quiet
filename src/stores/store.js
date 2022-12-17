@@ -37,6 +37,7 @@ export const useStore = defineStore("store", {
         password: "",
         newPassword: "",
       },
+      feedbackIsActive: false,
     };
   },
   getters: {},
