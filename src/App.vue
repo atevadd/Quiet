@@ -20,7 +20,7 @@ const isLoggedIn = () => {
     store.token = token;
     store.isLoggedIn = true;
 
-    router.push({ name: "profile" });
+    // router.push({ name: "profile" });
   }
 };
 
