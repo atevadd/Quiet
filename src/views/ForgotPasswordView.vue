@@ -63,6 +63,8 @@ const sendPasswordOtp = () => {
             store.notification = response.data.message;
 
             router.push({ name: "resetOtp" });
+          } else if (response.data.status === "false") {
+            store.notification = response.data.message;
           }
         })
         .catch((error) => {
