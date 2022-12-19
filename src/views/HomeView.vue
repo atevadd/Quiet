@@ -36,10 +36,16 @@ isLoggedIn();
       <img src="@/assets/q-logo.png" alt="" />
     </p>
     <div class="cta">
-      <router-link :to="{ name: 'register' }" class="cta__link primary"
+      <router-link
+        :to="{ name: 'register' }"
+        class="cta__link primary"
+        id="register-btn"
         >Get started</router-link
       >
-      <router-link :to="{ name: 'login' }" class="cta__link secondary"
+      <router-link
+        :to="{ name: 'login' }"
+        class="cta__link secondary"
+        id="login-btn"
         >Login</router-link
       >
     </div>

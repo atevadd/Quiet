@@ -25,7 +25,7 @@
         response.
       </h1>
       <p>Sign up to get your own feedback.</p>
-      <router-link :to="{ name: 'register' }" class="cta"
+      <router-link :to="{ name: 'register' }" class="cta" id="register-btn"
         >Get started on Quiett</router-link
       >
     </div>
