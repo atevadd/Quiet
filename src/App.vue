@@ -2,6 +2,30 @@
 import BaseNavbar from "./components/BaseNavbar.vue";
 import AppNotification from "./components/AppNotification.vue";
 import AppLoader from "./components/AppLoader.vue";
+
+import { onMounted } from "vue";
+import { getCookie } from "./assets/js/helper";
+import { useStore } from "./stores/store";
+
+const store = useStore();
+
+// to check for user details in cookies
+const isLoggedIn = () => {
+  if (getCookie("isLoggedIn") === "true") {
+    const user = JSON.parse(getCookie("user"));
+    const token = getCookie("login-token");
+
+    // Storing userdetails in store
+    store.userDetails = user;
+    store.token = token;
+    store.isLoggedIn = true;
+  }
+};
+
+// Checking if a user is already logged in
+isLoggedIn();
+
+onMounted(() => {});
 </script>
 
 <template>

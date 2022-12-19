@@ -70,6 +70,8 @@ const openFocus = (date, message) => {
   // Open focus modal
   store.isFocus = true;
 };
+// get messages on page enter
+store.getAllMessages();
 
 // Get user messages every 5 seconds
 onMounted(() => {

@@ -49,6 +49,8 @@ import AppInput from "../components/AppInput.vue";
 import { useStore } from "../stores/store";
 import axios from "axios";
 import { useRouter } from "vue-router";
+import { onMounted } from "vue";
+import { getCookie } from "../assets/js/helper";
 
 const store = useStore();
 const router = useRouter();
@@ -114,6 +116,10 @@ const validateUser = () => {
     console.log(error);
   }
 };
+
+onMounted(() => {
+  console.log(typeof getCookie("isLoggedIn"));
+});
 </script>
 
 <style lang="scss" scoped>

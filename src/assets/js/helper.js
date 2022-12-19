@@ -16,7 +16,7 @@ export const verifyUser = async (username) => {
 };
 
 // Set cookies
-function setCookie(name, value, days) {
+export function setCookie(name, value, days) {
   var expires = "";
   if (days) {
     var date = new Date();
@@ -27,7 +27,7 @@ function setCookie(name, value, days) {
 }
 
 // Get Cookies
-function getCookie(name) {
+export function getCookie(name) {
   var nameEQ = name + "=";
   var ca = document.cookie.split(";");
   for (var i = 0; i < ca.length; i++) {

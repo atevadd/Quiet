@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import { verifyUser } from "../assets/js/helper";
 import { useStore } from "../stores/store";
+import { getCookie } from "../assets/js/helper";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,6 +22,15 @@ const router = createRouter({
       meta: {
         title: "Login to continue | Quiett",
       },
+      beforeEnter(to, from) {
+        // const store = useStore();
+
+        if (getCookie("isLoggedIn") === "true") {
+          return { name: "profile" };
+        } else {
+          return true;
+        }
+      },
     },
     {
       path: "/forgot-password",
@@ -28,6 +38,20 @@ const router = createRouter({
       component: () => import("../views/ForgotPasswordView.vue"),
       meta: {
         title: "Forgot password | Quiett",
+      },
+      beforeEnter(to, from) {
+        // const store = useStore();
+
+        if (getCookie("isLoggedIn") === "true") {
+          return { name: "profile" };
+        } else if (
+          getCookie("isLoggedIn") === "false" &&
+          from.name === undefined
+        ) {
+          return { name: "login" };
+        } else {
+          return true;
+        }
       },
     },
     {
@@ -37,6 +61,20 @@ const router = createRouter({
       meta: {
         title: "Reset Password OTP | Quiett",
       },
+      beforeEnter(to, from) {
+        // const store = useStore();
+
+        if (getCookie("isLoggedIn") === "true") {
+          return { name: "profile" };
+        } else if (
+          getCookie("isLoggedIn") === "false" &&
+          from.name == undefined
+        ) {
+          return { name: "login" };
+        } else {
+          return true;
+        }
+      },
     },
     {
       path: "/new-password",
@@ -44,6 +82,20 @@ const router = createRouter({
       component: () => import("../views/ResetPasswordView.vue"),
       meta: {
         title: "Reset password | Quiett",
+      },
+      beforeEnter(to, from) {
+        // const store = useStore();
+
+        if (getCookie("isLoggedIn") === "true") {
+          return { name: "profile" };
+        } else if (
+          getCookie("isLoggedIn") === "false" &&
+          from.name == undefined
+        ) {
+          return { name: "login" };
+        } else {
+          return true;
+        }
       },
     },
     {
@@ -70,9 +122,10 @@ const router = createRouter({
         title: "Dashboard | Quiett",
       },
       beforeEnter(to, from) {
-        const store = useStore();
+        // const store = useStore();
 
-        if (store.isLoggedIn === true) {
+        if (getCookie("isLoggedIn") === "true") {
+          console.log(from);
           return true;
         } else {
           return { name: "login" };
@@ -89,7 +142,7 @@ const router = createRouter({
       beforeEnter(to, from) {
         const store = useStore();
 
-        if (store.isLoggedIn === true) {
+        if (getCookie("isLoggedIn") === "true") {
           return true;
         } else {
           return { name: "login" };

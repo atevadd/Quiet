@@ -44,6 +44,7 @@ import AppInput from "../components/AppInput.vue";
 import { useStore } from "../stores/store";
 import axios from "axios";
 import { useRouter } from "vue-router";
+import { setCookie } from "../assets/js/helper";
 
 // STORE
 const store = useStore();
@@ -61,6 +62,11 @@ const loginUser = () => {
         store.userDetails = response.data.data;
         store.token = response.data?.access_token;
         store.isLoggedIn = true;
+
+        // storing user details in cookie
+        setCookie("user", JSON.stringify(response.data.data), 5);
+        setCookie("login-token", response.data?.access_token, 5);
+        setCookie("isLoggedIn", true, 5);
 
         // remove the button laoding state
         store.isLoading = false;

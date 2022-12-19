@@ -2,7 +2,7 @@
 
 <template>
   <main class="container center">
-    <img src="@/assets/img/meta.png" alt="" hidden />
+    <!-- <img src="@/assets/img/meta.png" alt="" hidden /> -->
 
     <h1>Give a piece of your mind without trace</h1>
     <p class="center">

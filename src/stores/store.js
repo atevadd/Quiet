@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 import { useRouter } from "vue-router";
+import { setCookie } from "../assets/js/helper";
 
 export const useStore = defineStore("store", {
   state: () => {
@@ -70,6 +71,12 @@ export const useStore = defineStore("store", {
 
       // Show the user a success message
       this.notification = "Logout Successful";
+
+      // Clearing app cookies
+      // storing user details in cookie
+      setCookie("user", null, 0);
+      setCookie("login-token", null, 5);
+      setCookie("isLoggedIn", false, 0);
     },
   },
 });
