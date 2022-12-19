@@ -4,7 +4,7 @@
       <header>
         <h1>Your messages</h1>
         <p>
-          Here are the messages you have recieved from friends, family,
+          Here are the messages you have received from friends, family,
           co-workers and all.
         </p>
       </header>
@@ -39,7 +39,7 @@
     <div class="empty" v-else>
       <div class="empty__container">
         <img src="@/assets/img/response-3d.png" alt="" />
-        <h1>You have recieved no message</h1>
+        <h1>You have not received a message</h1>
       </div>
     </div>
 
