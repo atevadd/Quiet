@@ -125,7 +125,6 @@ const router = createRouter({
         // const store = useStore();
 
         if (getCookie("isLoggedIn") === "true") {
-          console.log(from);
           return true;
         } else {
           return { name: "login" };
@@ -163,6 +162,14 @@ const router = createRouter({
           console.log("does not exist");
           return { name: "error" };
         }
+      },
+    },
+    {
+      path: "/admin",
+      name: "admin-home",
+      component: () => import("../views/admin/HomeView.vue"),
+      meta: {
+        title: "Admin Dashboard | Quiett",
       },
     },
   ],

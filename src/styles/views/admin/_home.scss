@@ -1,0 +1,139 @@
+.admin {
+  position: relative;
+
+  &__stats {
+    margin-block: 40px;
+    width: 100%;
+
+    h4 {
+      font-size: 1.2rem;
+      color: $text-color-grey-100;
+      font-family: $serif;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    &-group {
+      position: relative;
+      margin-top: 10px;
+      display: grid;
+      gap: 20px;
+
+      @include mobile {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+      @include tablet {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      @include laptop {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      @include desktop {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .stats {
+        position: relative;
+        background-color: $brand-color-2;
+        padding: 30px 20px;
+        border-radius: 7px;
+
+        &__icon {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 40px;
+          font-size: 2rem;
+          color: lighten($color: $brand-color-2, $amount: 20%);
+        }
+        &__number {
+          font-size: 3rem;
+          line-height: 1.2;
+          color: $text-color-white;
+          color: $secondary-color;
+          letter-spacing: 2px;
+        }
+        &__title {
+          color: $text-color-white;
+          font-family: $mont;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+
+  &__user {
+    position: relative;
+    width: 100%;
+    padding-bottom: 50px;
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+
+      h4 {
+        font-size: 1.2rem;
+        color: $text-color-grey-100;
+        font-family: $serif;
+        letter-spacing: 1px;
+        font-weight: 600;
+      }
+
+      a {
+        font-size: 0.8rem;
+        color: $secondary-color;
+        font-family: $mont;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &-group {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 20px;
+      position: relative;
+      outline: 1px solid $text-color-grey-100;
+      border-radius: 7px;
+      padding: 20px 0;
+
+      .user {
+        width: 100%;
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 15px 30px;
+          // background-color: lighten($color: $brand-color-2, $amount: 10%);
+          border-radius: 7px;
+          color: $text-color-white;
+          box-sizing: initial;
+          // font-family: $mont;
+
+          @include mobile {
+            font-size: 0.9rem;
+          }
+
+          &:hover {
+            border-radius: 0;
+            background-color: $brand-color-2;
+            border-top: 1px solid $text-color-grey-100;
+            border-bottom: 1px solid $text-color-grey-100;
+            border-right: 1px solid transparent;
+            border-left: 1px solid transparent;
+          }
+        }
+        &__date {
+          @include mobile {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
