@@ -167,10 +167,27 @@ const router = createRouter({
     },
     {
       path: "/admin",
-      name: "admin-home",
+      name: "home-admin",
       component: () => import("../views/admin/HomeView.vue"),
       meta: {
         title: "Admin Dashboard | Quiett",
+      },
+      beforeEnter: () => {
+        const adminStore = useAdminStore();
+
+        if (adminStore.isAdmin) {
+          return true;
+        } else {
+          return { name: "login" };
+        }
+      },
+    },
+    {
+      path: "/admin/users",
+      name: "users-admin",
+      component: () => import("../views/admin/UsersView.vue"),
+      meta: {
+        title: "All users | Admin Dashboard | Quiett",
       },
       beforeEnter: () => {
         const adminStore = useAdminStore();
