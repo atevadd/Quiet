@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import { verifyUser } from "../assets/js/helper";
 import { useStore } from "../stores/store";
 import { getCookie } from "../assets/js/helper";
+import { useAdminStore } from "../stores/admin";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -170,6 +171,15 @@ const router = createRouter({
       component: () => import("../views/admin/HomeView.vue"),
       meta: {
         title: "Admin Dashboard | Quiett",
+      },
+      beforeEnter: () => {
+        const adminStore = useAdminStore();
+
+        if (adminStore.isAdmin) {
+          return true;
+        } else {
+          return { name: "login" };
+        }
       },
     },
   ],
