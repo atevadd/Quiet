@@ -6,17 +6,17 @@
         <div class="stats">
           <span class="stats__icon"><i class="uil uil-user"></i></span>
           <p class="stats__title">Total users</p>
-          <h3 class="stats__number">200</h3>
+          <h3 class="stats__number">{{ stats.users }}</h3>
         </div>
         <div class="stats">
           <span class="stats__icon"><i class="uil uil-envelope"></i></span>
           <p class="stats__title">Total Messages</p>
-          <h3 class="stats__number">200</h3>
+          <h3 class="stats__number">{{ stats.messages }}</h3>
         </div>
         <div class="stats">
           <span class="stats__icon"><i class="uil uil-apps"></i></span>
           <p class="stats__title">Total Groups</p>
-          <h3 class="stats__number">200</h3>
+          <h3 class="stats__number">{{ stats.group }}</h3>
         </div>
       </div>
     </div>
@@ -27,13 +27,15 @@
         <router-link to="/admin/users">View all</router-link>
       </header>
       <div class="admin__user-group">
-        <div class="user" v-for="stats in 5" :key="stats">
+        <div class="user" v-for="user in recentUsers" :key="recentUsers.id">
           <router-link to="/">
-            <span class="user__number">{{ stats }}</span>
-            <p class="user__name">Johhny</p>
-            <p class="user__email">Johndoe@gmail.com</p>
+            <span class="user__number">{{
+              recentUsers.indexOf(user) + 1
+            }}</span>
+            <p class="user__name">{{ user.username }}</p>
+            <p class="user__email">{{ user.email }}</p>
             <p class="user__date">
-              {{ moment("Wed Dec 21 2022 13:42:53 GMT+0100").format("lll") }}
+              {{ moment(user.created_at).format("lll") }}
             </p>
           </router-link>
         </div>
@@ -44,6 +46,17 @@
 
 <script setup>
 import moment from "moment";
+import { storeToRefs } from "pinia";
+import { useAdminStore } from "../../stores/admin";
+
+// Admin store
+const adminStore = useAdminStore();
+
+// Dashboard stats
+const { stats, recentUsers } = storeToRefs(adminStore);
+
+adminStore.getStats();
+adminStore.getCurrentUsers();
 </script>
 
 <style lang="scss" scoped>

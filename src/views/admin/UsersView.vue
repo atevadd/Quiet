@@ -17,6 +17,7 @@
           </router-link>
         </div>
       </div>
+      <AppPagination :paginationData="allUsers" :perPage="20" :page="1" />
     </div>
   </div>
 </template>
@@ -25,9 +26,12 @@
 import moment from "moment";
 import { storeToRefs } from "pinia";
 import { useAdminStore } from "../../stores/admin";
+import AppPagination from "../../components/AppPagination.vue";
 
+// The admin store
 const adminStore = useAdminStore();
 
+// destructuring the admin store
 const { allUsers } = storeToRefs(adminStore);
 
 // get all users
