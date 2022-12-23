@@ -6,13 +6,13 @@
       </header>
 
       <div class="admin__users__list">
-        <div class="user" v-for="stats in 10" :key="stats">
+        <div class="user" v-for="user in allUsers" :key="user.id">
           <router-link to="/">
-            <span class="user__number">{{ stats }}</span>
-            <p class="user__name">Johhny</p>
-            <p class="user__email">Johndoe@gmail.com</p>
+            <span class="user__number">{{ user.id }}</span>
+            <p class="user__name">{{ user.username }}</p>
+            <p class="user__email">{{ user.email }}</p>
             <p class="user__date">
-              {{ moment("Wed Dec 21 2022 13:42:53 GMT+0100").format("lll") }}
+              {{ moment(user.created_at).format("lll") }}
             </p>
           </router-link>
         </div>
@@ -23,6 +23,15 @@
 
 <script setup>
 import moment from "moment";
+import { storeToRefs } from "pinia";
+import { useAdminStore } from "../../stores/admin";
+
+const adminStore = useAdminStore();
+
+const { allUsers } = storeToRefs(adminStore);
+
+// get all users
+adminStore.getAllUsers();
 </script>
 
 <style lang="scss" scoped>
