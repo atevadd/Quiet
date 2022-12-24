@@ -11,7 +11,10 @@
         <textarea
           id="contact-textarea"
           :placeholder="`Write a message to ${route.params?.username}...`"
-          v-model="store.anonymousMessage"></textarea>
+          v-model="store.anonymousMessage.message"></textarea>
+
+        <!-- Upload image component -->
+        <!-- <UploadImage /> -->
 
         <AppButton id="contact__btn" :class="{ loading: store.isLoading }"
           ><span>Send message</span> <i class="uil uil-message"></i
@@ -37,6 +40,7 @@ import AppButton from "../components/AppButton.vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
 import { useStore } from "../stores/store";
+import UploadImage from "../components/UploadImage.vue";
 
 // PAGE ROUTE
 const route = useRoute();
@@ -56,7 +60,7 @@ const sendMessage = () => {
       .post("/send_message", null, {
         params: {
           username: route.params?.username,
-          message: store.anonymousMessage,
+          message: store.anonymousMessage.message,
         },
       })
       .then((response) => {

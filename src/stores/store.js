@@ -22,7 +22,10 @@ export const useStore = defineStore("store", {
       token: null,
       notification: null,
       hasError: true,
-      anonymousMessage: "",
+      anonymousMessage: {
+        message: "",
+        image: [],
+      },
       allMessages: [],
       isFocus: false,
       focus: {

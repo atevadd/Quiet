@@ -54,12 +54,12 @@
       min-height: 200px;
       resize: none;
       background-color: $brand-color-2;
-      border-radius: 5px;
+      border-radius: 5px 5px 0 0;
       border: none;
       color: $text-color-black;
       font-family: $mont;
       font-size: 0.8rem;
-      margin-bottom: 10px;
+      // margin-bottom: 10px;
 
       scroll-behavior: smooth;
 

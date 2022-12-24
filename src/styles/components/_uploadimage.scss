@@ -1,0 +1,63 @@
+.upload-image {
+  position: relative;
+  width: 100%;
+  background-color: $brand-color-2;
+  // outline: 1px solid $secondary-color;
+  border-radius: 0 0 5px 5px;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  // cursor: pointer;
+  transition: background 0.1s ease;
+
+  &:hover {
+    background-color: darken($color: $brand-color-2, $amount: 5%);
+    outline: 1px solid $secondary-color;
+  }
+
+  .image-label {
+    color: $text-color-black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: $mont;
+    cursor: pointer;
+
+    .label-text {
+      font-weight: 500;
+      font-size: 0.8rem;
+    }
+  }
+
+  .upload-filled {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // border: 1px solid $text-color-white;
+    font-family: $mont;
+    padding: 0 20px;
+
+    label {
+      display: block;
+      // font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+
+      .label-text {
+        font-weight: 700;
+        font-size: 0.8rem;
+      }
+    }
+    .delete-images {
+      cursor: pointer;
+
+      i {
+        &:hover {
+          color: rgb(219, 43, 43);
+        }
+      }
+    }
+  }
+}
