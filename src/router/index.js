@@ -199,6 +199,11 @@ const router = createRouter({
         }
       },
     },
+    {
+      path: "/admin/:username/messages",
+      name: "admin-messages",
+      component: () => import("../views/admin/MessageView.vue"),
+    },
   ],
 });
 

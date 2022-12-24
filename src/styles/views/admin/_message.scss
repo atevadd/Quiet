@@ -1,0 +1,77 @@
+.admin {
+  position: relative;
+
+  &__message {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    header {
+      text-align: center;
+
+      h1 {
+        color: $text-color-white;
+
+        .name {
+          color: $secondary-color;
+          text-transform: capitalize;
+        }
+      }
+    }
+
+    &-group {
+      width: 80%;
+      margin-inline: auto;
+      margin-top: 20px;
+      padding-bottom: 20px;
+      display: grid;
+      gap: 15px;
+
+      @include mobile {
+        width: 90%;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+      @include tablet {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      @include laptop {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      @include desktop {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    &__item {
+      // outline: 1px solid $secondary-color;
+      border-radius: 10px;
+      padding: 15px;
+      font-family: $mont;
+      color: $text-color-white;
+      font-weight: 500;
+      line-height: 1.6;
+      font-size: 0.85rem;
+      background-color: $brand-color-2;
+      align-self: flex-start;
+
+      .message-info {
+        position: relative;
+        font-family: $serif;
+        color: $secondary-color;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 10px;
+
+        #focus {
+          // position: absolute;
+          // top: 0;
+          // right: 0;
+          color: $text-color-grey-100;
+          font-size: 1rem;
+          margin-left: auto;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

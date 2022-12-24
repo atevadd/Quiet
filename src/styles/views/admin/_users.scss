@@ -57,6 +57,11 @@
             border-right: 1px solid transparent;
             border-left: 1px solid transparent;
           }
+
+          p {
+            text-align: left;
+            justify-self: flex-start;
+          }
         }
         &__date {
           @include mobile {

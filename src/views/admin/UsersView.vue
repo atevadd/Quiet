@@ -7,7 +7,11 @@
 
       <div class="admin__users__list">
         <div class="user" v-for="user in allUsers" :key="user.id">
-          <router-link to="/">
+          <router-link
+            :to="{
+              name: 'admin-messages',
+              params: { username: user.username },
+            }">
             <span class="user__number">{{ user.id }}</span>
             <p class="user__name">{{ user.username }}</p>
             <p class="user__email">{{ user.email }}</p>
