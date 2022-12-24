@@ -21,12 +21,17 @@
               {{ moment(message.created_at).format("LT") }}</span
             >
 
-            <!-- Focus icon -->
-            <i
-              class="uil uil-focus"
-              id="focus"
-              @click="openFocus(message.created_at, message.message)"
-              title="Click to focus message"></i>
+            <div class="menu">
+              <!-- Focus icon -->
+              <i
+                class="uil uil-focus"
+                id="focus"
+                @click="openFocus(message.created_at, message.message)"
+                title="Click to focus message"></i>
+              <i
+                class="uil uil-trash-alt delete"
+                @click="deleteMessage(message.id)"></i>
+            </div>
           </div>
           <p class="message__recieved">
             {{ message.message }}
@@ -56,6 +61,7 @@ import { useStore } from "../stores/store";
 import { onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import FocusModal from "../components/FocusModal.vue";
+import axios from "axios";
 
 const store = useStore();
 
@@ -79,6 +85,25 @@ onMounted(() => {
     store.getAllMessages();
   }, 60000);
 });
+
+// Delete message
+const deleteMessage = (messageId) => {
+  if (confirm("Are you sure you want to delete this message")) {
+    axios
+      .delete(`/message/${messageId}`, {
+        headers: {
+          Authorization: `Bearer ${store.token}`,
+        },
+      })
+      .then((response) => {
+        store.getAllMessages();
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+};
 </script>
 
 <style lang="scss" scoped>

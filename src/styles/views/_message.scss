@@ -95,7 +95,7 @@
     line-height: 1.6;
     font-size: 0.85rem;
     background-color: $brand-color-2;
-    align-self: flex-start;
+    // align-self: flex-start;
 
     .message-info {
       position: relative;
@@ -106,14 +106,24 @@
       gap: 5px;
       margin-bottom: 10px;
 
-      #focus {
-        // position: absolute;
-        // top: 0;
-        // right: 0;
+      .menu {
         color: $text-color-grey-100;
         font-size: 1rem;
         margin-left: auto;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        i {
+          color: $text-color-grey-100;
+
+          &.delete {
+            &:hover {
+              color: rgb(169, 56, 56);
+            }
+          }
+        }
       }
     }
   }
