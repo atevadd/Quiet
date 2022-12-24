@@ -3,7 +3,7 @@ import axios from "axios";
 export const useAdminStore = defineStore("admin", {
   state: () => {
     return {
-      isAdmin: true,
+      isAdmin: false,
       allUsers: [],
       stats: {
         group: 0,
