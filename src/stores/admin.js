@@ -45,7 +45,7 @@ export const useAdminStore = defineStore("admin", {
         .get("/admin/recentUsers")
         .then((response) => {
           // console.log(response);
-          this.recentUsers = response.data?.reverse();
+          this.recentUsers = response.data;
         })
         .catch((error) => {
           console.log(error);

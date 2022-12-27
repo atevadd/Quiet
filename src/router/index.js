@@ -166,6 +166,11 @@ const router = createRouter({
       },
     },
     {
+      path: "/groups",
+      name: "groups",
+      component: () => import("../views/GroupsView.vue"),
+    },
+    {
       path: "/admin",
       name: "home-admin",
       component: () => import("../views/admin/HomeView.vue"),

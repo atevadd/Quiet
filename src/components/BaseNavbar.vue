@@ -16,6 +16,9 @@
         <li v-show="store.isLoggedIn">
           <router-link :to="{ name: 'profile' }">Home</router-link>
         </li>
+        <!-- <li v-show="store.isLoggedIn">
+          <router-link :to="{ name: 'groups' }">Groups</router-link>
+        </li> -->
         <li v-show="store.isLoggedIn">
           <button @click="logoutUser">Logout</button>
         </li>

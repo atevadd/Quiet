@@ -42,6 +42,7 @@ export const useStore = defineStore("store", {
         newPassword: "",
       },
       feedbackIsActive: false,
+      groupModalIsActive: false,
     };
   },
   getters: {},
