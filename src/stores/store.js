@@ -43,6 +43,10 @@ export const useStore = defineStore("store", {
       },
       feedbackIsActive: false,
       groupModalIsActive: false,
+      createGroup: {
+        name: "",
+        description: "",
+      },
     };
   },
   getters: {},

@@ -1,0 +1,109 @@
+.profile__container {
+  background-color: $brand-color-2;
+  border-radius: 10px;
+  padding: 30px;
+
+  @include mobile {
+    width: 90%;
+  }
+  @include tablet {
+    width: 80%;
+  }
+  @include laptop {
+    width: 50%;
+  }
+  @include desktop {
+    width: 40%;
+  }
+}
+.profile__link {
+  position: relative;
+  text-align: left;
+
+  h3 {
+    color: $text-color-white;
+  }
+  & > p {
+    font-family: $mont;
+    color: $text-color-grey-100;
+    font-size: 0.85rem;
+
+    @include mobile {
+      width: 100%;
+      font-size: 0.75rem;
+    }
+    @include tablet {
+      width: 100%;
+    }
+    @include laptop {
+      width: 80%;
+    }
+    @include desktop {
+      width: 80%;
+    }
+  }
+
+  .link-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin-top: 20px;
+    align-items: center;
+    gap: 10px;
+
+    @include mobile {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .link {
+      // outline: 1px solid red;
+      background-color: $brand-color;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 10px;
+      padding: 10px 20px;
+
+      p {
+        font-size: 0.85rem;
+        font-family: $mont;
+        color: $secondary-color;
+        cursor: pointer;
+      }
+
+      i {
+        color: $text-color-white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: transform 0.15s ease;
+
+        &:hover {
+          color: $secondary-color;
+          transform: scale(1.1);
+        }
+      }
+    }
+    .social-media {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $brand-color;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 1.2rem;
+        color: $text-color-white;
+        transition: background 0.15s ease;
+
+        &:hover {
+          background-color: $secondary-color;
+          color: $text-color-black;
+          outline: 2px solid $text-color-black;
+        }
+      }
+    }
+  }
+}

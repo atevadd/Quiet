@@ -16,7 +16,7 @@
     <!-- Group modal -->
     <div class="group__modal" v-show="groupModalIsActive">
       <div class="group__modal-container">
-        <form>
+        <form @submit.prevent="createNewGroup">
           <header>
             <h3>Add a new group</h3>
 
@@ -26,17 +26,22 @@
           </header>
 
           <div class="input">
-            <input type="text" id="name" placeholder="Name" />
+            <input
+              type="text"
+              id="name"
+              v-model="createGroup.name"
+              placeholder="Name" />
           </div>
           <div class="input">
             <textarea
               id="desc"
               cols="20"
               rows="10"
+              v-model="createGroup.description"
               placeholder="Description..."></textarea>
           </div>
           <AppButton
-            :class="{ loading: store.isLoading }"
+            :class="{ loading: isLoading }"
             id="login__cta"
             type="submit"
             >Create group</AppButton
@@ -51,12 +56,65 @@
 import { storeToRefs } from "pinia";
 import AppButton from "../components/AppButton.vue";
 import { useStore } from "../stores/store";
+import axios from "axios";
 
 // APP Store
 const store = useStore();
 
 // Data from the app store
-const { groupModalIsActive } = storeToRefs(store);
+const {
+  groupModalIsActive,
+  isLoading,
+  notification,
+  token,
+  createGroup,
+  userDetails,
+} = storeToRefs(store);
+
+const createNewGroup = () => {
+  try {
+    if (createGroup.value.name === "") {
+      notification.value = "Group name is empty";
+    } else {
+      // Set the loading state of the button
+      isLoading.value = true;
+
+      // API call
+      axios
+        .post(
+          `/create_group/${userDetails.value?.id}`,
+          {
+            name: createGroup.value.name,
+            description: createGroup.value.description,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token.value}`,
+            },
+          }
+        )
+        .then((response) => {
+          if (response.data.status === "true") {
+            isLoading.value = false;
+
+            createGroup.value = {
+              name: "",
+              description: "",
+            };
+
+            notification.value = response.data?.message;
+            groupModalIsActive.value = false;
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          isLoading.value = false;
+        });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 </script>
 
 <style lang="scss" scoped>

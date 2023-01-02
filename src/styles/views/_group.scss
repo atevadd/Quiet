@@ -24,11 +24,12 @@
         outline: none;
         background-color: $brand-color-2;
         color: $text-color-white;
-        transition: 0.3s ease;
+        transition: box-shadow 0.3s ease;
         cursor: pointer;
 
         &:hover {
           box-shadow: 0 8px 23px rgba($color: #000000, $alpha: 0.3);
+          outline: 2px solid $secondary-color;
         }
         &:focus {
           outline: 2px solid $secondary-color;
