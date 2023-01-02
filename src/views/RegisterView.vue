@@ -59,33 +59,39 @@ const router = useRouter();
 const registerUser = () => {
   try {
     store.isLoading = true;
-    axios
-      .post("/register", store.registerDetails)
-      .then((response) => {
-        // Remove the loading state from the button
-        store.isLoading = false;
-        store.notification = "Account has been created";
-        // Redirect to login page
-        router.push({ name: "login" });
-        // Clear the register details
-        store.registerDetails = {
-          username: "",
-          email: "",
-          password: "",
-        };
-      })
-      .catch((error) => {
-        store.isLoading = false;
 
-        if (
-          error.response.status === 400 ||
-          error.response.data.status === "false"
-        ) {
-          store.notification = error.response.data.message?.email[0];
-        } else if (error.response.status === 500) {
-          store.notification = "Username is taken";
-        }
-      });
+    if (store.registerDetails.username.includes("")) {
+      store.isLoading = false;
+      store.notification = "username cannot include space";
+    } else {
+      axios
+        .post("/register", store.registerDetails)
+        .then((response) => {
+          // Remove the loading state from the button
+          store.isLoading = false;
+          store.notification = "Account has been created";
+          // Redirect to login page
+          router.push({ name: "login" });
+          // Clear the register details
+          store.registerDetails = {
+            username: "",
+            email: "",
+            password: "",
+          };
+        })
+        .catch((error) => {
+          store.isLoading = false;
+
+          if (
+            error.response.status === 400 ||
+            error.response.data.status === "false"
+          ) {
+            store.notification = error.response.data.message?.email[0];
+          } else if (error.response.status === 500) {
+            store.notification = "Username is taken";
+          }
+        });
+    }
   } catch (error) {
     console.log(error);
   }
@@ -95,7 +101,7 @@ const registerUser = () => {
 // This is called when the username field is blurred
 const validateUser = () => {
   try {
-    if (store.registerDetails.username) {
+    if (!store.registerDetails.username.includes("")) {
       axios
         .get(`/${store.registerDetails.username}`)
         .then((response) => {
@@ -110,7 +116,7 @@ const validateUser = () => {
           console.log(error);
         });
     } else {
-      store.hasError = true;
+      store.notification = "Username cannot include space";
     }
   } catch (error) {
     console.log(error);
