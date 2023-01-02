@@ -60,7 +60,7 @@ const registerUser = () => {
   try {
     store.isLoading = true;
 
-    if (store.registerDetails.username.includes("")) {
+    if (store.registerDetails.username.includes(" ")) {
       store.isLoading = false;
       store.notification = "username cannot include space";
     } else {
@@ -101,7 +101,7 @@ const registerUser = () => {
 // This is called when the username field is blurred
 const validateUser = () => {
   try {
-    if (!store.registerDetails.username.includes("")) {
+    if (!store.registerDetails.username.includes(" ")) {
       axios
         .get(`/${store.registerDetails.username}`)
         .then((response) => {
