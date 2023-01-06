@@ -97,7 +97,7 @@ const getGroupMessages = () => {
     .then((response) => {
       // If there a response data from the API
       if (response.data.status == "true") {
-        allGroupMessage.value = response.data.data;
+        allGroupMessage.value = response.data.data?.reverse();
       }
     })
     .catch((error) => {
