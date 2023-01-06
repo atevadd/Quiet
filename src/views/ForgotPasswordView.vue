@@ -51,8 +51,6 @@ const sendPasswordOtp = () => {
           email: store.forgotPasswordDetails.email,
         })
         .then((response) => {
-          console.log(response);
-
           store.isLoading = false;
 
           if (response.data.status === "true") {

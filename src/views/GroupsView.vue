@@ -1,7 +1,28 @@
 <template>
   <div class="group container center">
+    <div class="group__filled" v-if="allGroups.length > 0">
+      <header>
+        <h1>Groups</h1>
+      </header>
+      <div class="group__filled-container">
+        <router-link
+          :to="{ name: 'group', params: { groupName: group.name } }"
+          class="pill"
+          v-for="group in allGroups"
+          :key="group?.id"
+          >{{ group.name }}</router-link
+        >
+        <!-- <router-link to="/" class="pill" v-for="group in 10" :key="group">{{
+          "HElloooooo"
+        }}</router-link> -->
+        <button class="pill" @click="groupModalIsActive = true">
+          <i class="uil uil-plus"></i>Add new group
+        </button>
+      </div>
+    </div>
+
     <!-- Empty state when group is empty -->
-    <div class="group__empty">
+    <div class="group__empty" v-else>
       <div class="add-new">
         <button
           @click="groupModalIsActive = true"
@@ -69,8 +90,10 @@ const {
   token,
   createGroup,
   userDetails,
+  allGroups,
 } = storeToRefs(store);
 
+// Create new group
 const createNewGroup = () => {
   try {
     if (createGroup.value.name === "") {
@@ -115,8 +138,29 @@ const createNewGroup = () => {
     console.log(error);
   }
 };
+
+// Get all groups
+const getAllGroups = (username) => {
+  axios
+    .get(`/user_groups/${username}`, {
+      headers: {
+        Authorization: `Bearer ${token.value}`,
+      },
+    })
+    .then((response) => {
+      if (response.data.status === "true") {
+        allGroups.value = response.data.data;
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+// get user groups
+getAllGroups(store.userDetails?.username);
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/views/group";
+@import "../styles/views/_groups.scss";
 </style>

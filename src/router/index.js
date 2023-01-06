@@ -169,6 +169,48 @@ const router = createRouter({
       path: "/groups",
       name: "groups",
       component: () => import("../views/GroupsView.vue"),
+      meta: {
+        title: "Groups | Quiett",
+      },
+      beforeEnter(to, from) {
+        const store = useStore();
+
+        if (getCookie("isLoggedIn") === "true") {
+          return true;
+        } else {
+          return { name: "login" };
+        }
+      },
+    },
+    {
+      path: "/groups/:groupName",
+      name: "group",
+      component: () => import("../views/GroupView.vue"),
+      meta: {
+        title: "Groups | Quiett",
+      },
+      beforeEnter(to, from) {
+        const store = useStore();
+
+        if (getCookie("isLoggedIn") === "true") {
+          return true;
+        } else {
+          return { name: "login" };
+        }
+      },
+    },
+    {
+      path: "/:username/:groupName",
+      name: "send-group-message",
+      component: () => import("../views/ContactView.vue"),
+      beforeEnter: async (to, from) => {
+        if ((await verifyUser(to.params?.username)) === true) {
+          return true;
+        } else {
+          console.log("does not exist");
+          return { name: "error" };
+        }
+      },
     },
     {
       path: "/admin",

@@ -62,7 +62,6 @@ const createNewPassword = () => {
           })
           .then((response) => {
             store.isLoading = false;
-            // console.log(response);
 
             if (response.data.status === "true") {
               // Clearing the forgot password details
@@ -87,7 +86,6 @@ const createNewPassword = () => {
           })
           .catch((error) => {
             store.isLoading = false;
-            // console.log(error.message);
 
             if (error.message === "Network Error") {
               store.notification = "Check your internet connection";

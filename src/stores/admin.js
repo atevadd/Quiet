@@ -3,7 +3,7 @@ import axios from "axios";
 export const useAdminStore = defineStore("admin", {
   state: () => {
     return {
-      isAdmin: false,
+      isAdmin: true,
       allUsers: [],
       stats: {
         group: 0,
@@ -44,7 +44,6 @@ export const useAdminStore = defineStore("admin", {
       axios
         .get("/admin/recentUsers")
         .then((response) => {
-          // console.log(response);
           this.recentUsers = response.data;
         })
         .catch((error) => {

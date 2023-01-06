@@ -47,6 +47,8 @@ export const useStore = defineStore("store", {
         name: "",
         description: "",
       },
+      allGroups: [],
+      allGroupMessage: [],
     };
   },
   getters: {},

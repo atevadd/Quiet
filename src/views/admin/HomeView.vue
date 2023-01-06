@@ -47,6 +47,7 @@
 <script setup>
 import moment from "moment";
 import { storeToRefs } from "pinia";
+import { onMounted } from "vue";
 import { useAdminStore } from "../../stores/admin";
 
 // Admin store
@@ -57,6 +58,13 @@ const { stats, recentUsers } = storeToRefs(adminStore);
 
 adminStore.getStats();
 adminStore.getCurrentUsers();
+
+onMounted(() => {
+  setInterval(() => {
+    adminStore.getStats();
+    adminStore.getCurrentUsers();
+  }, 10000);
+});
 </script>
 
 <style lang="scss" scoped>

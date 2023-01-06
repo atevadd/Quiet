@@ -7,7 +7,7 @@
         <span class="name">{{ route.params.username }}</span> without trace🤐
       </p>
 
-      <form class="contact__form" @submit.prevent="sendMessage">
+      <form class="contact__form" @submit.prevent="checkRoute()">
         <textarea
           id="contact-textarea"
           :placeholder="`Write a message to ${route.params?.username}...`"
@@ -48,8 +48,9 @@ const route = useRoute();
 // STORE
 const store = useStore();
 
+// Send personal message
 const sendMessage = () => {
-  if (store.anonymousMessage === "") {
+  if (store.anonymousMessage.message === "") {
     store.notification = "Message cannot be blank";
   } else {
     // LOADING IS TRUE
@@ -65,7 +66,7 @@ const sendMessage = () => {
       })
       .then((response) => {
         store.isLoading = false;
-        store.anonymousMessage = "";
+        store.anonymousMessage.message = "";
 
         // Checking if the request was successful and displaying a message
         if (response.data.status === "true") {
@@ -77,6 +78,44 @@ const sendMessage = () => {
         console.log(error);
         store.isLoading = false;
       });
+  }
+};
+
+// Send group message
+const sendGroupMessage = () => {
+  if (store.anonymousMessage.message === "") {
+    store.notification = "Message cannot be blank";
+  } else {
+    // LOADING IS TRUE
+    store.isLoading = true;
+
+    axios
+      .post(`/${store.userDetails?.username}/${route.params.groupName}`, {
+        message: store.anonymousMessage.message,
+      })
+      .then((response) => {
+        store.isLoading = false;
+        store.anonymousMessage.message = "";
+
+        // Checking if the request was successful and displaying a message
+        if (response.data.status === "true") {
+          store.notification = response.data.message;
+          store.feedbackIsActive = true;
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        store.isLoading = false;
+      });
+  }
+};
+
+// Check what route this is
+const checkRoute = () => {
+  if (route.name == "contact") {
+    return sendMessage();
+  } else {
+    return sendGroupMessage();
   }
 };
 </script>

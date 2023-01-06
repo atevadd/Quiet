@@ -97,7 +97,6 @@ const deleteMessage = (messageId) => {
       })
       .then((response) => {
         store.getAllMessages();
-        console.log(response);
       })
       .catch((error) => {
         console.log(error);

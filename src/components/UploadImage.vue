@@ -84,9 +84,9 @@ const clearImages = () => {
   anonymousMessage.value.image = [];
 };
 
-onMounted(() => {
-  console.log(uploader.value.textContent);
-});
+// onMounted(() => {
+//   console.log(uploader.value.textContent);
+// });
 </script>
 
 <style lang="scss" scoped>

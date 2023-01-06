@@ -16,9 +16,18 @@
         <li v-show="store.isLoggedIn">
           <router-link :to="{ name: 'profile' }">Home</router-link>
         </li>
-        <!-- <li v-show="store.isLoggedIn">
-          <router-link :to="{ name: 'groups' }">Groups</router-link>
-        </li> -->
+        <li v-show="store.isLoggedIn">
+          <router-link :to="{ name: 'message' }">Messages</router-link>
+        </li>
+        <li v-show="store.isLoggedIn">
+          <router-link
+            :to="{ name: 'groups' }"
+            :class="[
+              route?.path.includes('groups') ? 'router-link-exact-active' : '',
+            ]"
+            >Groups</router-link
+          >
+        </li>
         <li v-show="store.isLoggedIn">
           <button @click="logoutUser">Logout</button>
         </li>
@@ -62,7 +71,8 @@ const checkRoute = computed(() => {
     route.name !== "contact" &&
     route.name !== "forgot" &&
     route.name !== "resetOtp" &&
-    route.name !== "resetPassword"
+    route.name !== "resetPassword" &&
+    route.name !== "send-group-message"
   ) {
     return true;
   } else {
