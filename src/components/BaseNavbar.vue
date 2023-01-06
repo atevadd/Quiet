@@ -16,10 +16,10 @@
         <li v-show="store.isLoggedIn">
           <router-link :to="{ name: 'profile' }">Home</router-link>
         </li>
-        <li v-show="store.isLoggedIn">
+        <!-- <li v-show="store.isLoggedIn">
           <router-link :to="{ name: 'message' }">Messages</router-link>
-        </li>
-        <li v-show="store.isLoggedIn">
+        </li> -->
+        <!-- <li v-show="store.isLoggedIn">
           <router-link
             :to="{ name: 'groups' }"
             :class="[
@@ -27,12 +27,15 @@
             ]"
             >Groups</router-link
           >
-        </li>
+        </li> -->
         <li v-show="store.isLoggedIn">
           <button @click="logoutUser">Logout</button>
         </li>
       </ul>
     </nav>
+
+    <!-- Mobile menu toggle -->
+    <!-- <button class="menu-toggle"><i class="uil uil-bars"></i> Menu</button> -->
   </header>
 </template>
 

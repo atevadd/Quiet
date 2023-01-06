@@ -190,6 +190,8 @@ const router = createRouter({
         title: "Groups | Quiett",
       },
       beforeEnter(to, from) {
+        // using the
+        document.title = `${to.params.groupName} | Quiett`;
         const store = useStore();
 
         if (getCookie("isLoggedIn") === "true") {

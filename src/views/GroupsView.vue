@@ -98,6 +98,11 @@ const createNewGroup = () => {
   try {
     if (createGroup.value.name === "") {
       notification.value = "Group name is empty";
+    } else if (
+      createGroup.value.name !== "" &&
+      createGroup.value.name.includes(" ")
+    ) {
+      store.notification = "Group name cannot contain space!";
     } else {
       // Set the loading state of the button
       isLoading.value = true;
@@ -119,6 +124,7 @@ const createNewGroup = () => {
         .then((response) => {
           if (response.data.status === "true") {
             isLoading.value = false;
+            getAllGroups();
 
             createGroup.value = {
               name: "",

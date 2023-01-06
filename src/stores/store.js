@@ -9,6 +9,7 @@ export const useStore = defineStore("store", {
       isLoggedIn: false,
       isLoading: false,
       loaderIsActive: false,
+      preloaderIsActive: true,
       registerDetails: {
         username: "",
         email: "",
