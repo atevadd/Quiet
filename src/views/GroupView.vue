@@ -161,7 +161,6 @@ const splitImages = (images) => {
   const fullImagePaths = imgs.map(
     (path) => "https://quiett.com.ng/img/" + path
   );
-  console.log(fullImagePaths);
   return fullImagePaths;
 };
 

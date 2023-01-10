@@ -15,6 +15,15 @@ const router = createRouter({
       meta: {
         title: "Give a piece of your mind without trace | Quiett",
       },
+      beforeEnter(to, from) {
+        // const store = useStore();
+
+        if (getCookie("isLoggedIn") === "true") {
+          return { name: "profile" };
+        } else {
+          return true;
+        }
+      },
     },
     {
       path: "/login",

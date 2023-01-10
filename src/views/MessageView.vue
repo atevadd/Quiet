@@ -44,7 +44,6 @@
               :min-zoom="0.8"
               :scroll-disabled="false"
               :loop="true"
-              :move-disabled="true"
               @hide="hideLightbox"></vue-easy-lightbox>
 
             <img
