@@ -21,7 +21,9 @@
     <div class="no-image" v-else>
       <label for="image" class="image-label"
         ><i class="uil uil-image"></i>
-        <span class="label-text">Click here to upload image</span></label
+        <span class="label-text"
+          >Click here to upload image <small>(max 5)</small></span
+        ></label
       >
     </div>
 
