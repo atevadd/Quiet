@@ -40,6 +40,25 @@
         <p class="message__recieved">
           {{ message.message }}
         </p>
+
+        <div class="images" v-if="message.image !== null">
+          <vue-easy-lightbox
+            :visible="visible"
+            :imgs="lightbxImgs"
+            :index="index"
+            :min-zoom="0.8"
+            :scroll-disabled="false"
+            :loop="true"
+            :move-disabled="true"
+            @hide="hideLightbox"></vue-easy-lightbox>
+
+          <img
+            alt=""
+            v-for="(path, index) in splitImages(message.image)"
+            :key="index"
+            :src="path"
+            @click="showMultiple(index, splitImages(message.image))" />
+        </div>
       </div>
     </div>
 
@@ -52,10 +71,7 @@
     </div>
 
     <!-- Focus modal -->
-    <FocusModal
-      message="Yoooooooooooo"
-      date="Sat, 17 Dec 2022 06:54:06 GMT"
-      v-show="store.isFocus" />
+    <FocusModal v-show="store.isFocus" />
   </main>
 </template>
 
@@ -67,6 +83,7 @@ import moment from "moment";
 import FocusModal from "../components/FocusModal.vue";
 import axios from "axios";
 import { ref } from "vue";
+import VueEasyLightbox from "vue-easy-lightbox";
 
 const route = useRoute();
 const store = useStore();
@@ -135,6 +152,32 @@ const deleteMessage = (messageId) => {
         console.log(error);
       });
   }
+};
+
+// Seperate each image and return an array
+const splitImages = (images) => {
+  const imgs = images?.split("|");
+
+  const fullImagePaths = imgs.map(
+    (path) => "https://quiett.com.ng/img/" + path
+  );
+  console.log(fullImagePaths);
+  return fullImagePaths;
+};
+
+// lightbox props
+const visible = ref(false);
+const lightbxImgs = ref([]);
+const index = ref(0);
+
+const showMultiple = (i, images) => {
+  lightbxImgs.value = images;
+  index.value = i;
+  visible.value = true;
+};
+
+const hideLightbox = () => {
+  visible.value = false;
 };
 </script>
 

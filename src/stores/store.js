@@ -50,6 +50,7 @@ export const useStore = defineStore("store", {
       },
       allGroups: [],
       allGroupMessage: [],
+      menuIsActive: false,
     };
   },
   getters: {},

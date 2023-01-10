@@ -36,6 +36,24 @@
           <p class="message__recieved">
             {{ message.message }}
           </p>
+          <div class="images" v-if="message.image !== null">
+            <vue-easy-lightbox
+              :visible="visible"
+              :imgs="lightbxImgs"
+              :index="index"
+              :min-zoom="0.8"
+              :scroll-disabled="false"
+              :loop="true"
+              :move-disabled="true"
+              @hide="hideLightbox"></vue-easy-lightbox>
+
+            <img
+              alt=""
+              v-for="(path, index) in splitImages(message.image)"
+              :key="index"
+              :src="path"
+              @click="showMultiple(index, splitImages(message.image))" />
+          </div>
         </div>
       </div>
     </div>
@@ -58,10 +76,12 @@
 <script setup>
 import moment from "moment";
 import { useStore } from "../stores/store";
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import { storeToRefs } from "pinia";
 import FocusModal from "../components/FocusModal.vue";
 import axios from "axios";
+
+import VueEasyLightbox from "vue-easy-lightbox";
 
 const store = useStore();
 
@@ -102,6 +122,52 @@ const deleteMessage = (messageId) => {
         console.log(error);
       });
   }
+};
+
+const splitImages = (images) => {
+  // console.log(images);
+
+  if (images == null) {
+    console.log("it is null");
+    return [];
+  } else {
+    if (images?.includes("|")) {
+      const imgs = images?.split("|");
+
+      const fullImagePaths = imgs.map(
+        (path) => "https://quiett.com.ng/img/" + path
+      );
+      return fullImagePaths;
+    } else if (!images?.includes("|")) {
+      const imagePath = images?.split();
+
+      // console.log("this here", imagePath);
+
+      const fullImagePaths = imagePath.map(
+        (path) => "https://quiett.com.ng/img/" + path
+      );
+
+      // console.log(fullImagePaths);
+      return fullImagePaths;
+    } else if (images == null) {
+      return "";
+    }
+  }
+};
+
+// lightbox props
+const visible = ref(false);
+const lightbxImgs = ref([]);
+const index = ref(0);
+
+const showMultiple = (i, images) => {
+  lightbxImgs.value = images;
+  index.value = i;
+  visible.value = true;
+};
+
+const hideLightbox = () => {
+  visible.value = false;
 };
 </script>
 

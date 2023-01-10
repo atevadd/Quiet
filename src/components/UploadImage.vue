@@ -66,7 +66,7 @@ const uploadImages = (event) => {
     // compressing each images before upload
     for (let i = 0; i < event.target.files.length; i++) {
       new Compressor(imageFiles[i], {
-        quality: 0.6,
+        quality: 0.8,
         convertTypes: ["image/png", "image/webp"],
         convertSize: 100000,
         // The compression process is asynchronous,
@@ -75,6 +75,7 @@ const uploadImages = (event) => {
           anonymousMessage.value.image.push(result);
         },
       });
+      // anonymousMessage.value.image.push(imageFiles[i]);
     }
   }
 };

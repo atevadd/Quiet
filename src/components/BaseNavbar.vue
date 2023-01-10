@@ -4,7 +4,7 @@
       <router-link to="/">Quiett</router-link>
     </div>
 
-    <nav class="nav">
+    <nav class="nav" :class="{ active: store.menuIsActive }" ref="nav">
       <ul>
         <!-- <li><router-link to="/">Home</router-link></li> -->
         <li v-show="!store.isLoggedIn">
@@ -16,10 +16,10 @@
         <li v-show="store.isLoggedIn">
           <router-link :to="{ name: 'profile' }">Home</router-link>
         </li>
-        <!-- <li v-show="store.isLoggedIn">
+        <li v-show="store.isLoggedIn">
           <router-link :to="{ name: 'message' }">Messages</router-link>
-        </li> -->
-        <!-- <li v-show="store.isLoggedIn">
+        </li>
+        <li v-show="store.isLoggedIn">
           <router-link
             :to="{ name: 'groups' }"
             :class="[
@@ -27,7 +27,7 @@
             ]"
             >Groups</router-link
           >
-        </li> -->
+        </li>
         <li v-show="store.isLoggedIn">
           <button @click="logoutUser">Logout</button>
         </li>
@@ -35,12 +35,14 @@
     </nav>
 
     <!-- Mobile menu toggle -->
-    <!-- <button class="menu-toggle"><i class="uil uil-bars"></i> Menu</button> -->
+    <button ref="toggle" class="menu-toggle">
+      <i class="uil uil-bars"></i> Menu
+    </button>
   </header>
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "../stores/store";
 
@@ -81,6 +83,31 @@ const checkRoute = computed(() => {
   } else {
     return false;
   }
+});
+
+// Mobile menu
+const nav = ref(null);
+const toggle = ref(null);
+
+onMounted(() => {
+  window.addEventListener("mousedown", (e) => {
+    const clickedEl = e.target;
+
+    // check if the menu toggle button is clicked
+    if (toggle.value?.contains(clickedEl)) {
+      // Check if the menu is active
+      if (store.menuIsActive == true) {
+        store.menuIsActive = false;
+      } else {
+        store.menuIsActive = true;
+      }
+    } else {
+      if (nav.value?.contains(clickedEl)) {
+        clickedEl.click();
+      }
+      store.menuIsActive = false;
+    }
+  });
 });
 </script>
 

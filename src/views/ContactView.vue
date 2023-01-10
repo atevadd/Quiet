@@ -14,7 +14,7 @@
           v-model="store.anonymousMessage.message"></textarea>
 
         <!-- Upload image component -->
-        <!-- <UploadImage /> -->
+        <UploadImage />
 
         <AppButton id="contact__btn" :class="{ loading: store.isLoading }"
           ><span>Send message</span> <i class="uil uil-message"></i
@@ -56,14 +56,26 @@ const sendMessage = () => {
     // LOADING IS TRUE
     store.isLoading = true;
 
+    const form = new FormData();
+
+    form.append("username", route.params?.username);
+    form.append("message", store.anonymousMessage.message);
+
+    store.anonymousMessage.image.forEach((image) => {
+      form.append("image[]", image, image.name);
+    });
+
+    const newAxios = axios.create({
+      baseURL: "https://quiett.com.ng/api/v1",
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Accept: "application/json",
+      },
+    });
+
     // API CALL
-    axios
-      .post("/send_message", null, {
-        params: {
-          username: route.params?.username,
-          message: store.anonymousMessage.message,
-        },
-      })
+    newAxios
+      .post("/send_message", form)
       .then((response) => {
         store.isLoading = false;
         store.anonymousMessage.message = "";
@@ -89,10 +101,28 @@ const sendGroupMessage = () => {
     // LOADING IS TRUE
     store.isLoading = true;
 
-    axios
-      .post(`/${store.userDetails?.username}/${route.params.groupName}`, {
-        message: store.anonymousMessage.message,
-      })
+    // Creating the formdata instance
+    const form = new FormData();
+
+    // appending the anonymous message
+    form.append("message", store.anonymousMessage.message);
+
+    // Appending each image to the form data
+    store.anonymousMessage.image.forEach((image) => {
+      form.append("image[]", image, image.name);
+    });
+
+    // Creating a new axios instance
+    const newAxios = axios.create({
+      baseURL: "https://quiett.com.ng/api/v1",
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Accept: "application/json",
+      },
+    });
+
+    newAxios
+      .post(`/${store.userDetails?.username}/${route.params.groupName}`, form)
       .then((response) => {
         store.isLoading = false;
         store.anonymousMessage.message = "";

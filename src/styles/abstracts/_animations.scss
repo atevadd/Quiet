@@ -57,3 +57,14 @@
     transform: scale(0.4);
   }
 }
+
+@keyframes menu-slide-in {
+  0% {
+    transform: translateY(50px);
+    // opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

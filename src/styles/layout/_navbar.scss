@@ -6,6 +6,7 @@
   background-color: $brand-color;
   padding: 10px 0;
   height: auto;
+  // border: 1px solid #fff;
 
   .logo {
     a {
@@ -17,14 +18,45 @@
   .nav {
     position: relative;
 
+    @include mobile {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      // height: 100vh;
+      width: 101%;
+      max-height: 100vh;
+      background-color: $brand-color;
+      z-index: 99;
+      margin-left: -1px;
+      box-shadow: 3px 3px 13px rgba($color: #000000, $alpha: 0.3);
+      border-radius: 5px;
+      padding: 10px 0;
+      animation: menu-slide-in 0.5s ease;
+    }
+
+    &.active {
+      display: block;
+    }
+
     ul {
       display: flex;
       align-items: center;
       justify-content: center;
       list-style-type: none;
 
+      @include mobile {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
       li {
         margin-left: 40px;
+
+        @include mobile {
+          margin-left: 0;
+          width: 100%;
+        }
 
         a {
           color: $text-color-white;
@@ -35,6 +67,12 @@
           transition: 0.35s ease;
           font-size: 0.85rem;
 
+          @include mobile {
+            display: block;
+            // width: 100%;
+            padding: 15px 15px;
+          }
+
           &.router-link-exact-active {
             &::before {
               content: "";
@@ -44,17 +82,26 @@
               height: 20%;
               background-color: rgba($color: $secondary-color, $alpha: 0.5);
               z-index: 1;
+
+              @include mobile {
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 5px;
+              }
             }
           }
           &:hover {
-            &::before {
-              content: "";
-              position: absolute;
-              bottom: 0;
-              width: 100%;
-              height: 20%;
-              background-color: rgba($color: $secondary-color, $alpha: 0.5);
-              z-index: 1;
+            @include laptop {
+              &::before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 20%;
+                background-color: rgba($color: $secondary-color, $alpha: 0.5);
+                z-index: 1;
+              }
             }
           }
         }
@@ -70,6 +117,13 @@
           position: relative;
           font-size: 0.85rem;
 
+          @include mobile {
+            display: block;
+            width: 100%;
+            padding: 15px 15px;
+            text-align: left;
+          }
+
           &:hover {
             &::before {
               content: "";
@@ -83,6 +137,22 @@
           }
         }
       }
+    }
+  }
+
+  .menu-toggle {
+    background-color: $secondary-color;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-size: 0.9rem;
+
+    @include tablet {
+      display: none;
     }
   }
 }
