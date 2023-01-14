@@ -124,7 +124,7 @@ const createNewGroup = () => {
         .then((response) => {
           if (response.data.status === "true") {
             isLoading.value = false;
-            getAllGroups();
+            getAllGroups(userDetails.value?.username);
 
             createGroup.value = {
               name: "",
