@@ -6,7 +6,6 @@
   background-color: $brand-color;
   padding: 10px 0;
   height: auto;
-  // border: 1px solid #fff;
 
   .logo {
     a {
@@ -150,6 +149,8 @@
     border-radius: 4px;
     padding: 3px 10px;
     font-size: 0.9rem;
+    color: $text-color-black;
+    -webkit-text-fill-color: $text-color-black;
 
     @include tablet {
       display: none;
