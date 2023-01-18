@@ -25,12 +25,22 @@
       align-items: center;
       justify-content: space-between;
 
+      @include mobile {
+        width: 100%;
+        border: 2px solid;
+        gap: 10px;
+      }
+
       span {
         font-family: $mont;
         font-size: 0.85rem;
         font-weight: 500;
         color: $text-color-black;
         cursor: pointer;
+
+        @include mobile {
+          font-size: 0.8rem;
+        }
       }
       i {
         color: $text-color-white;

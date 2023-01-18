@@ -63,6 +63,9 @@ const loginUser = () => {
         store.token = response.data?.access_token;
         store.isLoggedIn = true;
 
+        // Redirect to homepage
+        router.push({ name: "profile" });
+
         // storing user details in cookie
         setCookie("user", JSON.stringify(response.data.data), 5);
         setCookie("login-token", response.data?.access_token, 5);
@@ -72,9 +75,6 @@ const loginUser = () => {
         store.isLoading = false;
 
         store.notification = "Login successful";
-
-        // Redirect to homepage
-        router.push({ name: "profile" });
 
         // clearing loginDetails
         store.loginDetails = {
