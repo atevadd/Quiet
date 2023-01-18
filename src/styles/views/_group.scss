@@ -46,9 +46,15 @@
         color: $text-color-white;
         cursor: pointer;
 
-        &:hover {
+        &:active {
           color: $secondary-color;
-          transform: scale(1.09);
+        }
+
+        @include laptop {
+          &:hover {
+            color: $secondary-color;
+            transform: scale(1.09);
+          }
         }
       }
     }
