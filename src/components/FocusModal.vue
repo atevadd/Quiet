@@ -15,7 +15,7 @@
         </p>
       </div>
       <button id="download-message" @click="downloadMessage">
-        Share Message
+        <i class="uil uil-share-alt"></i>Share Message
       </button>
     </div>
   </div>
@@ -33,48 +33,73 @@ const downloadMessage = () => {
   // Step 2: Select the element to capture
   const elementToCapture = document.getElementById("focus-modal");
 
-  // Step 3: Capture the element as an image
+  // Step 2: Use html2canvas to capture the element as an image
   html2canvas(elementToCapture).then((canvas) => {
-    // Get the image data as a base64-encoded string
-    const imageData = canvas.toDataURL("image/png");
-
-    // Step 4: Share using Web Share API
-    if (navigator.share) {
-      navigator
-        .share({
-          title: "Anonymous Message",
-          text: "Check out this anonymous message!",
-          url: imageData,
-        })
-        .then(() => console.log("Screenshot shared successfully."))
-        .catch((error) => {
-          console.error("Error occured.");
-          // Get the image data as a base64-encoded string
-          const imageData = canvas.toDataURL("image/png");
-
-          // Step 4: Create a download link
-          const downloadLink = document.createElement("a");
-          downloadLink.setAttribute("href", imageData);
-          downloadLink.setAttribute("download", "anon.png");
-
-          // Step 5: Trigger the download
-          downloadLink.click();
-        });
-    } else {
-      console.error("Web Share API not supported.");
-
-      // Get the image data as a base64-encoded string
-      const imageData = canvas.toDataURL("image/png");
-
-      // Step 4: Create a download link
-      const downloadLink = document.createElement("a");
-      downloadLink.setAttribute("href", imageData);
-      downloadLink.setAttribute("download", "anon.png");
-
-      // Step 5: Trigger the download
-      downloadLink.click();
-    }
+    // Step 3: Convert the canvas to a Blob
+    canvas.toBlob(function (blob) {
+      // Step 4: Share the Blob using the Web Share API
+      if (navigator.share) {
+        navigator
+          .share({
+            files: [new File([blob], "screenshot.png", { type: "image/png" })],
+          })
+          .then(() => {
+            console.log("Successfully shared!");
+          })
+          .catch((error) => {
+            console.error("Error sharing:", error);
+          });
+      } else {
+        console.error("Web Share API is not supported in this browser.");
+      }
+    }, "image/png");
   });
+
+  // elementToCapture.style.fontFeatureSettings = '"liga" 0';
+  // // Step 3: Capture the element as an image
+  // html2canvas(elementToCapture, {
+  //   backgroundColor: null,
+  // }).then(async (canvas) => {
+  //   // Get the image data as a base64-encoded string
+  //   const imageData = canvas.toDataURL("image/png");
+
+  //   // Step 4: Share using Web Share API
+  //   if (navigator.share) {
+  //     await navigator
+  //       .share({
+  //         title: "Anonymous Message",
+  //         text: "Check out this anonymous message!",
+  //         url: imageData,
+  //       })
+  //       .then(() => console.log("Screenshot shared successfully."))
+  //       .catch((error) => {
+  //         console.error("Error occured.");
+  //         // Get the image data as a base64-encoded string
+  //         const imageData = canvas.toDataURL("image/png");
+
+  //         // Step 4: Create a download link
+  //         const downloadLink = document.createElement("a");
+  //         downloadLink.setAttribute("href", imageData);
+  //         downloadLink.setAttribute("download", "anon.png");
+
+  //         // Step 5: Trigger the download
+  //         downloadLink.click();
+  //       });
+  //   } else {
+  //     console.error("Web Share API not supported.");
+
+  //     // Get the image data as a base64-encoded string
+  //     const imageData = canvas.toDataURL("image/png");
+
+  //     // Step 4: Create a download link
+  //     const downloadLink = document.createElement("a");
+  //     downloadLink.setAttribute("href", imageData);
+  //     downloadLink.setAttribute("download", "anon.png");
+
+  //     // Step 5: Trigger the download
+  //     downloadLink.click();
+  //   }
+  // });
 
   // // Step 3: Capture the element as an image
   // html2canvas(elementToCapture).then((canvas) => {
