@@ -34,7 +34,9 @@ const downloadMessage = () => {
   const elementToCapture = document.getElementById("focus-modal");
 
   // Step 2: Use html2canvas to capture the element as an image
-  html2canvas(elementToCapture).then((canvas) => {
+  html2canvas(elementToCapture, {
+    backgroundColor: null,
+  }).then((canvas) => {
     // Step 3: Convert the canvas to a Blob
     canvas.toBlob(function (blob) {
       // Step 4: Share the Blob using the Web Share API
