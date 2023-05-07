@@ -34,38 +34,61 @@ const downloadMessage = () => {
   const elementToCapture = document.getElementById("focus-modal");
 
   // Step 3: Capture the element as an image
-  // html2canvas(elementToCapture).then((canvas) => {
-  //   // Get the image data as a base64-encoded string
-  //   const imageData = canvas.toDataURL("image/png");
-
-  //   // Step 4: Share using Web Share API
-  //   if (navigator.share) {
-  //     navigator
-  //       .share({
-  //         title: "Shared Screenshot",
-  //         text: "Check out this screenshot!",
-  //         url: imageData,
-  //       })
-  //       .then(() => console.log("Screenshot shared successfully."))
-  //       .catch((error) => console.error("Error sharing screenshot:", error));
-  //   } else {
-  //     console.error("Web Share API not supported.");
-  //   }
-  // });
-
-  // Step 3: Capture the element as an image
   html2canvas(elementToCapture).then((canvas) => {
     // Get the image data as a base64-encoded string
     const imageData = canvas.toDataURL("image/png");
 
-    // Step 4: Create a download link
-    const downloadLink = document.createElement("a");
-    downloadLink.setAttribute("href", imageData);
-    downloadLink.setAttribute("download", "anon.png");
+    // Step 4: Share using Web Share API
+    if (navigator.share) {
+      navigator
+        .share({
+          title: "Anonymous Message",
+          text: "Check out this anonymous message!",
+          url: imageData,
+        })
+        .then(() => console.log("Screenshot shared successfully."))
+        .catch((error) => {
+          console.error("Error occured.");
+          // Get the image data as a base64-encoded string
+          const imageData = canvas.toDataURL("image/png");
 
-    // Step 5: Trigger the download
-    downloadLink.click();
+          // Step 4: Create a download link
+          const downloadLink = document.createElement("a");
+          downloadLink.setAttribute("href", imageData);
+          downloadLink.setAttribute("download", "anon.png");
+
+          // Step 5: Trigger the download
+          downloadLink.click();
+        });
+    } else {
+      console.error("Web Share API not supported.");
+
+      // Get the image data as a base64-encoded string
+      const imageData = canvas.toDataURL("image/png");
+
+      // Step 4: Create a download link
+      const downloadLink = document.createElement("a");
+      downloadLink.setAttribute("href", imageData);
+      downloadLink.setAttribute("download", "anon.png");
+
+      // Step 5: Trigger the download
+      downloadLink.click();
+    }
   });
+
+  // // Step 3: Capture the element as an image
+  // html2canvas(elementToCapture).then((canvas) => {
+  //   // Get the image data as a base64-encoded string
+  //   const imageData = canvas.toDataURL("image/png");
+
+  //   // Step 4: Create a download link
+  //   const downloadLink = document.createElement("a");
+  //   downloadLink.setAttribute("href", imageData);
+  //   downloadLink.setAttribute("download", "anon.png");
+
+  //   // Step 5: Trigger the download
+  //   downloadLink.click();
+  // });
 
   // Step 1: Select the element to capture
   // const elementToCapture = document.getElementById("focus-modal");
