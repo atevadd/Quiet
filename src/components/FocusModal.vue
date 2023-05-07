@@ -45,7 +45,7 @@ const shareMessage = () => {
           .share({
             files: [new File([blob], "screenshot.png", { type: "image/png" })],
             title: "Share anonymous message",
-            text: "You are sharing one of the anonymous messages you received",
+            text: "This is one of the anonymous message I received.",
           })
           .then(() => {
             console.log("Successfully shared!");
