@@ -103,6 +103,7 @@
 
       @include mobile {
         width: 100%;
+        margin-block: 20px;
         grid-template-columns: repeat(1, minmax(0, 1fr));
       }
       @include tablet {
@@ -144,7 +145,7 @@
           cursor: pointer;
           display: flex;
           align-items: center;
-          gap: 10px;
+          gap: 15px;
 
           i {
             color: $text-color-grey-100;

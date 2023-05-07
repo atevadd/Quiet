@@ -39,7 +39,7 @@
       }
     }
     .pill {
-      padding: 10px 20px;
+      padding: 10px 15px;
       background-color: $brand-color-2;
       border-radius: 50px;
       outline: 2px solid transparent;
@@ -51,7 +51,7 @@
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 10px;
 
       &:hover {
         outline: 2px solid $secondary-color;

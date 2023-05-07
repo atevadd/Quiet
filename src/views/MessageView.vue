@@ -65,10 +65,7 @@
       </div>
     </div>
 
-    <FocusModal
-      message="Yoooooooooooo"
-      date="Sat, 17 Dec 2022 06:54:06 GMT"
-      v-show="store.isFocus" />
+    <FocusModal v-show="store.isFocus" />
   </div>
 </template>
 

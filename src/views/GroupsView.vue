@@ -10,11 +10,9 @@
           class="pill"
           v-for="group in allGroups"
           :key="group?.id"
-          >{{ group.name }}</router-link
-        >
-        <!-- <router-link to="/" class="pill" v-for="group in 10" :key="group">{{
-          "HElloooooo"
-        }}</router-link> -->
+          >{{ group.name }} <i class="uil uil-trash-alt"></i
+        ></router-link>
+
         <button class="pill" @click="groupModalIsActive = true">
           <i class="uil uil-plus"></i>Add new group
         </button>
